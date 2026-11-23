@@ -2,8 +2,10 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { PawIcon, MenuIcon, XIcon } from "@/components/icons";
+import { BoneIcon, PawIcon, MenuIcon, XIcon } from "@/components/icons";
 import { useCartCount } from "@/lib/store";
+import { useRouter } from "next/navigation";
+import { CartDrawer } from "@/components/CartDrawer";
 
 const NAV_ITEMS = [
   { label: "How it works", href: "#how-it-works" },
@@ -16,6 +18,8 @@ const NAV_ITEMS = [
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [cartOpen, setCartOpen] = useState(false);
+  const router = useRouter();
   const count = useCartCount();
 
   useEffect(() => {
@@ -72,6 +76,17 @@ export function Header() {
         </nav>
 
         <div className="ml-auto flex items-center gap-3">
+          <button
+            type="button"
+            onClick={() => setCartOpen(true)}
+            aria-label="Open cart"
+            className="relative grid h-11 w-11 place-items-center rounded-full bg-white/80 text-ink shadow-sm"
+          >
+            <BoneIcon size={18} />
+            {count > 0 ? (
+              <span className="animate-cart absolute -top-1 -right-1 grid min-w-5 place-items-center rounded-full bg-brown-800 px-1.5 text-[10px] font-bold text-cream">{count}</span>
+            ) : null}
+          </button>
           <button
             type="button"
             onClick={() => setOpen(true)}
@@ -135,6 +150,14 @@ export function Header() {
           </>
         ) : null}
       </AnimatePresence>
+      <CartDrawer
+        open={cartOpen}
+        onClose={() => setCartOpen(false)}
+        onCheckout={() => {
+          setCartOpen(false);
+          router.push("/checkout");
+        }}
+      />
     </motion.header>
   );
 }

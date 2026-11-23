@@ -39,6 +39,7 @@ export function HowItWorks() {
     const section = sectionRef.current;
     const pin = pinRef.current;
     if (!section || !pin) return;
+    if (typeof window !== "undefined" && window.innerWidth < 768) return;
 
     const ctx = gsap.context(() => {
       gsap.timeline({

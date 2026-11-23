@@ -18,3 +18,20 @@ export function toKg(lbs: number): number {
 export function toGrams(kg: number): number {
   return Math.round(kg * 1000);
 }
+
+export function formatEnInDate(date: Date): string {
+  return new Intl.DateTimeFormat("en-IN", {
+    weekday: "short",
+    day: "numeric",
+    month: "short",
+  }).format(date);
+}
+
+export function formatEnInFullDate(date: Date): string {
+  return new Intl.DateTimeFormat("en-IN", {
+    weekday: "short",
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  }).format(date);
+}

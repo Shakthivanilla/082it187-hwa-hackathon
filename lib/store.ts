@@ -11,6 +11,7 @@ export interface CartItem {
 interface ForageGridState {
   cart: CartItem[];
   addItem: (item: CartItem) => void;
+  updateItem: (id: string, patch: Partial<CartItem>) => void;
   removeItem: (id: string) => void;
   clearCart: () => void;
 }
@@ -21,6 +22,12 @@ export const useForageGrid = create<ForageGridState>()(
       cart: [],
       addItem: (item) =>
         set((state) => ({ cart: [...state.cart, item] })),
+      updateItem: (id, patch) =>
+        set((state) => ({
+          cart: state.cart.map((item) =>
+            item.id === id ? { ...item, ...patch } : item,
+          ),
+        })),
       removeItem: (id) =>
         set((state) => ({
           cart: state.cart.filter((item) => item.id !== id),

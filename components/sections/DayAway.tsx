@@ -54,6 +54,7 @@ export function DayAway() {
     const sun = sunRef.current;
     const moon = moonRef.current;
     if (!section) return;
+    if (typeof window !== "undefined" && window.innerWidth < 768) return;
 
     const ctx = gsap.context(() => {
       if (sticky) {
