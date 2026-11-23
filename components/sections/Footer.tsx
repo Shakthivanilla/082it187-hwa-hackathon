@@ -77,12 +77,12 @@ export function Footer() {
               {subscribed ? "Subscribed" : "Join"}
             </button>
           </form>
-          {subscribed ? <p className="text-xs font-bold text-yellow-400">You&apos;re on the list. (demo)</p> : null}
+          {subscribed ? <p className="text-xs font-bold text-yellow-400">You are on the list. (demo)</p> : null}
 
           <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs font-semibold text-cream/60">
             <a href="#home" className="hover:text-cream">Home</a>
             <a href="#how-it-works" className="hover:text-cream">How it works</a>
-            <a href="#day-away" className="hover:text-cream">A Day While You&apos;re Away</a>
+            <a href="#day-away" className="hover:text-cream">A Day While You are Away</a>
             <a href="#safety" className="hover:text-cream">Safety</a>
             <a href="#faq" className="hover:text-cream">FAQ</a>
             <a href="#configure" className="hover:text-cream">Build Yours</a>
