@@ -12,48 +12,54 @@ b:"/_next/static/chunks/3crj47s60t_bx.js"
 c:I[8821,["$2","$3","$4","$5","$b"],"default"]
 d:I[37457,["$2","$3","$4","$5"],"default"]
 e:I[99172,["$2","$3","$4","$5"],"Footer"]
-11:"/_next/static/chunks/2g13h0k468cgh.js"
-12:I[88838,["$2","$3","$4","$5","$11"],"Hero"]
-13:I[32359,["$2","$3","$4","$5","$11"],"Problem"]
-14:I[87345,["$2","$3","$4","$5","$11"],"HowItWorks"]
-15:I[46576,["$2","$3","$4","$5","$11"],"DayAway"]
-16:I[31576,["$2","$3","$4","$5","$11"],"SevenDayScent"]
-17:I[65326,["$2","$3","$4","$5","$11"],"BentoGrid"]
-18:I[83197,["$2","$3","$4","$5","$11"],"Comparison"]
-19:I[51925,["$2","$3","$4","$5","$11"],"Safety"]
-1a:"BuildYourForageGrid"
-1b:I[52172,["$2","$3","$4","$5","$11"],"$1a"]
-1c:"PortionEstimator"
-1d:I[46625,["$2","$3","$4","$5","$11"],"$1c"]
-1e:I[77995,["$2","$3","$4","$5","$11"],"ReviewMarquee"]
-1f:I[36057,["$2","$3","$4","$5","$11"],"Faq"]
-20:I[55706,["$2","$3","$4","$5","$11"],"Cta"]
-21:I[97367,["$2","$3","$4","$5"],"OutletBoundary"]
-22:"$Sreact.suspense"
-25:"ViewportBoundary"
-26:I[97367,["$2","$3","$4","$5"],"$25"]
-28:"MetadataBoundary"
-29:I[97367,["$2","$3","$4","$5"],"$28"]
-2c:"/_next/static/chunks/0ven5rngtv9ue.js"
-2d:I[53348,["$2","$3","$4","$5","$2c"],"default"]
-:HL["/_next/static/chunks/3a4exi9m2un4q.css","style"]
+11:"/_next/static/chunks/1gzcklxiwasol.js"
+12:"SectionErrorBoundary"
+13:I[36305,["$2","$3","$4","$5","$11"],"$12"]
+14:I[88838,["$2","$3","$4","$5","$11"],"Hero"]
+15:I[32359,["$2","$3","$4","$5","$11"],"Problem"]
+16:I[87345,["$2","$3","$4","$5","$11"],"HowItWorks"]
+17:I[46576,["$2","$3","$4","$5","$11"],"DayAway"]
+18:I[31576,["$2","$3","$4","$5","$11"],"SevenDayScent"]
+19:I[76809,["$2","$3","$4","$5","$11"],"ScentWheel"]
+1a:I[65326,["$2","$3","$4","$5","$11"],"BentoGrid"]
+1b:I[83197,["$2","$3","$4","$5","$11"],"Comparison"]
+1c:I[51925,["$2","$3","$4","$5","$11"],"Safety"]
+1d:"BuildYourForageGrid"
+1e:I[52172,["$2","$3","$4","$5","$11"],"$1d"]
+1f:"PortionEstimator"
+20:I[46625,["$2","$3","$4","$5","$11"],"$1f"]
+21:I[77995,["$2","$3","$4","$5","$11"],"ReviewMarquee"]
+22:I[36057,["$2","$3","$4","$5","$11"],"Faq"]
+27:"ViewportBoundary"
+28:I[97367,["$2","$3","$4","$5"],"$27"]
+2a:"MetadataBoundary"
+2b:I[97367,["$2","$3","$4","$5"],"$2a"]
+2c:"$Sreact.suspense"
+2f:"/_next/static/chunks/0ven5rngtv9ue.js"
+30:I[53348,["$2","$3","$4","$5","$2f"],"default"]
+:HL["/_next/static/chunks/34eidbuz9xdw5.css","style"]
 :HL["/_next/static/media/07c7676b89ed2778-s.p.2bn3s6zvc0dyp.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 f:X
-24:X
-10:[["children",{"s":"__PAGE__","h":514,"d":{"r":["$","$1","c",{"children":[["$","main",null,{"className":"flex flex-1 flex-col","children":[["$","$L12",null,{}],["$","$L13",null,{}],["$","$L14",null,{}],["$","$L15",null,{}],["$","$L16",null,{}],["$","$L17",null,{}],["$","$L18",null,{}],["$","$L19",null,{}],["$","$L1b",null,{}],["$","$L1d",null,{}],["$","$L1e",null,{}],["$","$L1f",null,{}],["$","$L20",null,{}]]}],[["$","script","script-0",{"src":"/_next/static/chunks/2g13h0k468cgh.js","async":true,"nonce":"$undefined"}]],["$","$L21",null,{"children":["$","$22",null,{"name":"Next.MetadataOutlet","children":"$@23"}]}]]}],"p":true,"v":"$24"}}]]
-2b:X
+26:X
+10:[["children",{"s":"__PAGE__","h":514,"d":{"r":["$","$1","c",{"children":[["$","main",null,{"className":"flex flex-1 flex-col","children":[["$","$L13",null,{"fallback":["$","div",null,{"className":"py-24 text-center text-ink/60","children":["$","p",null,{"children":"Error loading this section."}]}],"children":["$","$L14",null,{}]}],["$","$L13",null,{"fallback":["$","div",null,{"className":"py-24 text-center text-ink/60","children":["$","p",null,{"children":"Error loading this section."}]}],"children":["$","$L15",null,{}]}],["$","$L13",null,{"fallback":["$","div",null,{"className":"py-24 text-center text-ink/60","children":["$","p",null,{"children":"Error loading this section."}]}],"children":["$","$L16",null,{}]}],["$","$L13",null,{"fallback":["$","div",null,{"className":"py-24 text-center text-ink/60","children":["$","p",null,{"children":"Error loading this section."}]}],"children":["$","$L17",null,{}]}],["$","$L13",null,{"fallback":["$","div",null,{"className":"py-24 text-center text-ink/60","children":["$","p",null,{"children":"Error loading this section."}]}],"children":["$","$L18",null,{}]}],["$","$L13",null,{"fallback":["$","div",null,{"className":"py-24 text-center text-ink/60","children":["$","p",null,{"children":"Error loading this section."}]}],"children":["$","$L19",null,{}]}],["$","$L13",null,{"fallback":["$","div",null,{"className":"py-24 text-center text-ink/60","children":["$","p",null,{"children":"Error loading this section."}]}],"children":["$","$L1a",null,{}]}],["$","$L13",null,{"fallback":["$","div",null,{"className":"py-24 text-center text-ink/60","children":["$","p",null,{"children":"Error loading this section."}]}],"children":["$","$L1b",null,{}]}],["$","$L13",null,{"fallback":["$","div",null,{"className":"py-24 text-center text-ink/60","children":["$","p",null,{"children":"Error loading this section."}]}],"children":["$","$L1c",null,{}]}],["$","$L13",null,{"fallback":["$","div",null,{"className":"py-24 text-center text-ink/60","children":["$","p",null,{"children":"Error loading this section."}]}],"children":["$","$L1e",null,{}]}],["$","$L13",null,{"fallback":["$","div",null,{"className":"py-24 text-center text-ink/60","children":["$","p",null,{"children":"Error loading this section."}]}],"children":["$","$L20",null,{}]}],["$","$L13",null,{"fallback":["$","div",null,{"className":"py-24 text-center text-ink/60","children":["$","p",null,{"children":"Error loading this section."}]}],"children":["$","$L21",null,{}]}],["$","$L13",null,{"fallback":["$","div",null,{"className":"py-24 text-center text-ink/60","children":["$","p",null,{"children":"Error loading this section."}]}],"children":["$","$L22",null,{}]}],"$L23"]}],["$L24"],"$L25"]}],"p":true,"v":"$26"}}]]
 2e:X
-2f:X
-0:{"P":null,"c":["",""],"q":"","i":false,"t":{"t":{"s":"","h":530,"d":{"r":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/3a4exi9m2un4q.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/1qjrsp_gj1rjz.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/2flulzjavgc6w.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/2507gmsogsvan.js","async":true,"nonce":"$undefined"}],["$","script","script-3",{"src":"/_next/static/chunks/3x9a8p91m646-.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"LINzvG_variable h-full antialiased","children":["$","body",null,{"className":"min-h-full flex flex-col bg-white font-sans text-ink","children":["$","$L6",null,{"children":[["$","$L7",null,{}],["$","$L8",null,{}],["$","$L9",null,{}],["$","$La",null,{"parallelRouterKey":"children","error":"$c","errorStyles":[],"errorScripts":[["$","script","script-0",{"src":"/_next/static/chunks/3crj47s60t_bx.js","async":true,"nonce":"$undefined"}]],"template":["$","$Ld",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}],["$","$Le",null,{}]]}]}]}]]}],"p":true,"v":"$f"},"c":"$Q10"},"h":{"r":["$","$1","h",{"children":[null,["$","$L26",null,{"children":"$L27"}],["$","$L29",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$22",null,{"name":"Next.Metadata","children":"$L2a"}]}],null]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"p":true,"v":"$2b"}},"m":"$undefined","G":["$2d",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/3a4exi9m2un4q.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"S":true,"r":"$2e","s":"$2f","a":"$@30","l":"$undefined","p":"$undefined","d":"$undefined","b":"wws-uO1YOH76jEJgz0moZ","u":"$@31"}
-2f:300
-27:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
-32:I[27201,["$2","$3","$4","$5"],"IconMark"]
-23:null
-2a:[["$","title","0",{"children":"ForageGrid | Smart 6-Zone Kibble Console for Dogs"}],["$","meta","1",{"name":"description","content":"ForageGrid is the smart 6-zone kibble console that turns lonely hours into sniffing, solving and calm."}],["$","meta","2",{"property":"og:title","content":"ForageGrid | Smart 6-Zone Kibble Console for Dogs"}],["$","meta","3",{"property":"og:description","content":"ForageGrid is the smart 6-zone kibble console that turns lonely hours into sniffing, solving and calm."}],["$","meta","4",{"property":"og:image","content":"https://082it187-hwa-hackathon-eight.vercel.app/media/foragegrid-hero.png"}],["$","meta","5",{"property":"og:type","content":"website"}],["$","meta","6",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","7",{"name":"twitter:title","content":"ForageGrid | Smart 6-Zone Kibble Console for Dogs"}],["$","meta","8",{"name":"twitter:description","content":"ForageGrid is the smart 6-zone kibble console that turns lonely hours into sniffing, solving and calm."}],["$","meta","9",{"name":"twitter:image","content":"https://082it187-hwa-hackathon-eight.vercel.app/media/foragegrid-hero.png"}],["$","link","10",{"rel":"icon","href":"/icon.svg"}],["$","$L32","11",{}]]
-2f:C
-2b:C
+31:X
+32:X
+0:{"P":null,"c":["",""],"q":"","i":false,"t":{"t":{"s":"","h":530,"d":{"r":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/34eidbuz9xdw5.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/1qjrsp_gj1rjz.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/2flulzjavgc6w.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/2507gmsogsvan.js","async":true,"nonce":"$undefined"}],["$","script","script-3",{"src":"/_next/static/chunks/3x9a8p91m646-.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"LINzvG_variable h-full antialiased","children":["$","body",null,{"className":"min-h-full flex flex-col bg-white font-sans text-ink","children":["$","$L6",null,{"children":[["$","$L7",null,{}],["$","$L8",null,{}],["$","$L9",null,{}],["$","$La",null,{"parallelRouterKey":"children","error":"$c","errorStyles":[],"errorScripts":[["$","script","script-0",{"src":"/_next/static/chunks/3crj47s60t_bx.js","async":true,"nonce":"$undefined"}]],"template":["$","$Ld",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}],["$","$Le",null,{}]]}]}]}]]}],"p":true,"v":"$f"},"c":"$Q10"},"h":{"r":["$","$1","h",{"children":[null,["$","$L28",null,{"children":"$L29"}],["$","$L2b",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$2c",null,{"name":"Next.Metadata","children":"$L2d"}]}],null]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"p":true,"v":"$2e"}},"m":"$undefined","G":["$30",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/34eidbuz9xdw5.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"S":true,"r":"$31","s":"$32","a":"$@33","l":"$undefined","p":"$undefined","d":"$undefined","b":"4tSnkKRN4PYf6gP2AFOoj","u":"$@34"}
+35:I[55706,["$2","$3","$4","$5","$11"],"Cta"]
+36:I[97367,["$2","$3","$4","$5"],"OutletBoundary"]
+23:["$","$L13",null,{"fallback":["$","div",null,{"className":"py-24 text-center text-ink/60","children":["$","p",null,{"children":"Error loading this section."}]}],"children":["$","$L35",null,{}]}]
+24:["$","script","script-0",{"src":"/_next/static/chunks/1gzcklxiwasol.js","async":true,"nonce":"$undefined"}]
+25:["$","$L36",null,{"children":["$","$2c",null,{"name":"Next.MetadataOutlet","children":"$@37"}]}]
+32:300
+29:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+38:I[27201,["$2","$3","$4","$5"],"IconMark"]
+2d:[["$","title","0",{"children":"ForageGrid | Smart 6-Zone Kibble Console for Dogs"}],["$","meta","1",{"name":"description","content":"ForageGrid is the smart 6-zone kibble console that turns lonely hours into sniffing, solving and calm."}],["$","meta","2",{"property":"og:title","content":"ForageGrid | Smart 6-Zone Kibble Console for Dogs"}],["$","meta","3",{"property":"og:description","content":"ForageGrid is the smart 6-zone kibble console that turns lonely hours into sniffing, solving and calm."}],["$","meta","4",{"property":"og:image","content":"https://082it187-hwa-hackathon-eight.vercel.app/media/foragegrid-hero.png"}],["$","meta","5",{"property":"og:type","content":"website"}],["$","meta","6",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","7",{"name":"twitter:title","content":"ForageGrid | Smart 6-Zone Kibble Console for Dogs"}],["$","meta","8",{"name":"twitter:description","content":"ForageGrid is the smart 6-zone kibble console that turns lonely hours into sniffing, solving and calm."}],["$","meta","9",{"name":"twitter:image","content":"https://082it187-hwa-hackathon-eight.vercel.app/media/foragegrid-hero.png"}],["$","link","10",{"rel":"icon","href":"/icon.svg"}],["$","$L38","11",{}]]
+37:null
+32:C
 2e:C
-24:C
+31:C
+26:C
 f:C
-31:false
-30:null
+34:false
+33:null
