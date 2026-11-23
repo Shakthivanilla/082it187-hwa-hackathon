@@ -2,6 +2,7 @@ import { Hero } from "@/components/hero/Hero";
 import { Problem } from "@/components/sections/Problem";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { DayAway } from "@/components/sections/DayAway";
+import { SevenDayScent } from "@/components/sections/SevenDayScent";
 import { ScentWheel } from "@/components/sections/ScentWheel";
 import { BentoGrid } from "@/components/sections/BentoGrid";
 import { Comparison } from "@/components/sections/Comparison";
@@ -19,7 +20,7 @@ export default function Home() {
       <Problem />
       <HowItWorks />
       <DayAway />
-      
+      <SevenDayScent />
       <BentoGrid />
       <Comparison />
       <Safety />
