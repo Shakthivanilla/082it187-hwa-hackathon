@@ -3,7 +3,6 @@
 import { Canvas } from "@react-three/fiber";
 import { useEffect, useState } from "react";
 import * as THREE from "three";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { MeshDistortMaterial } from "@react-three/drei";
 
 function Blob({ color }: { color?: string }) {
@@ -24,8 +23,10 @@ function Blob({ color }: { color?: string }) {
 export function HeroCanvas({ color }: { color?: string }) {
   const [model, setModel] = useState<THREE.Group | null>(null);
 
-  useEffect(() => {
-    const loader = new GLTFLoader();
+  // GLB loader commented out - using console PNG as main visual per requirements
+  // Uncomment and place /foragegrid.glb in /public/media/ if 3D model needed
+  /* useEffect(() => {
+    const loader = new THREE.GLTFLoader();
     let cancelled = false;
     loader.load(
       "/foragegrid.glb",
@@ -40,7 +41,7 @@ export function HeroCanvas({ color }: { color?: string }) {
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, []); */
 
   return (
     <Canvas

@@ -23,23 +23,26 @@ export function Counter({
   useLayoutEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const target = value;
-    const obj = { v: 0 };
-    const tween = gsap.to(obj, {
-      v: target,
-      duration,
-      ease: "power2.out",
-      scrollTrigger: { trigger: el, start: "top 88%", once: true },
-      onUpdate: () => {
-        el.textContent = target.toLocaleString("en-IN", {
-          maximumFractionDigits: decimals,
-          minimumFractionDigits: decimals,
-        }) + suffix;
-      },
-    });
-    return () => {
-      tween.scrollTrigger?.kill?.();
-    };
+    // Only initialize GSAP ScrollTrigger on desktop viewports to avoid mobile crashes
+    if (typeof window !== "undefined" && window.innerWidth >= 768) {
+      const target = value;
+      const obj = { v: 0 };
+      const tween = gsap.to(obj, {
+        v: target,
+        duration,
+        ease: "power2.out",
+        scrollTrigger: { trigger: el, start: "top 88%", once: true },
+        onUpdate: () => {
+          el.textContent = target.toLocaleString("en-IN", {
+            maximumFractionDigits: decimals,
+            minimumFractionDigits: decimals,
+          }) + suffix;
+        },
+      });
+      return () => {
+        tween.scrollTrigger?.kill?.();
+      };
+    }
   }, [value, suffix, decimals, duration]);
 
   return (

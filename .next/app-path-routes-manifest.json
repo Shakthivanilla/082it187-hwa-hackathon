@@ -1,6 +1,8 @@
 {
   "/_global-error/page": "/_global-error",
   "/_not-found/page": "/_not-found",
+  "/api/order/route": "/api/order",
+  "/api/orders/route": "/api/orders",
   "/checkout/page": "/checkout",
   "/confirmation/page": "/confirmation",
   "/icon.svg/route": "/icon.svg",

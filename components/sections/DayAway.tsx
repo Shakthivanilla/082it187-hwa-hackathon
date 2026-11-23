@@ -64,7 +64,7 @@ export function DayAway() {
     const track = trackRef.current;
     if (!section || !track) return;
 
-    // Background gradient animation: sunrise to sunset color shift
+    // Background gradient animation: sunrise to sunset color shift (safe on all viewports)
     const bgGradient = section.querySelector(".bg-gradient");
     if (bgGradient) {
       ;(bgGradient as HTMLElement).style.backgroundPosition = "";
@@ -75,20 +75,22 @@ export function DayAway() {
     }
 
     // Horizontal scroll with momentum on desktop, swipe on mobile
-    const ctx = gsap.context(() => {
-      ;(window as any).ScrollTrigger.create({
-        trigger: section,
-        start: "top top",
-        end: "bottom bottom",
-        onUpdate: (self: any) => {
-          const maxScroll = section.scrollWidth - section.clientWidth;
-          const progress = Math.min(Math.max(self.progress, 0), 1);
-          setScrollPosition(maxScroll * progress);
-        },
-      });
-    }, section);
-
-    return () => ctx.revert();
+    // Only initialize ScrollTrigger on desktop viewports to avoid mobile crashes
+    if (typeof window !== "undefined" && window.innerWidth >= 768) {
+      const ctx = gsap.context(() => {
+        ;(window as any).ScrollTrigger.create({
+          trigger: section,
+          start: "top top",
+          end: "bottom bottom",
+          onUpdate: (self: any) => {
+            const maxScroll = section.scrollWidth - section.clientWidth;
+            const progress = Math.min(Math.max(self.progress, 0), 1);
+            setScrollPosition(maxScroll * progress);
+          },
+        });
+      }, section);
+      return () => ctx.revert();
+    }
   }, []);
 
   return (

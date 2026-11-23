@@ -1,7 +1,7 @@
 {
   "status": 200,
   "headers": {
-    "link": "</_next/static/media/07c7676b89ed2778-s.p.2bn3s6zvc0dyp.woff2>; rel=preload; as=\"font\"; crossorigin=\"\"; type=\"font/woff2\", </media/foragegrid-hero.png>; rel=preload; as=\"image\", </media/exploded-view.png>; rel=preload; as=\"image\", </media/foragegrid-cleaning.png>; rel=preload; as=\"image\", </media/puppy.png>; rel=preload; as=\"image\", </media/lifestyle-golden.png>; rel=preload; as=\"image\", </media/senior.png>; rel=preload; as=\"image\", </media/foragegrid-app.png>; rel=preload; as=\"image\", </media/foragegrid-logo.png>; rel=preload; as=\"image\"",
+    "link": "</_next/static/media/07c7676b89ed2778-s.p.2bn3s6zvc0dyp.woff2>; rel=preload; as=\"font\"; crossorigin=\"\"; type=\"font/woff2\", </media/hero-console.png>; rel=preload; as=\"image\", </media/exploded-view.png>; rel=preload; as=\"image\", </media/foragegrid-app.png>; rel=preload; as=\"image\", </media/scent-mon-grass.png>; rel=preload; as=\"image\", </media/foragegrid-cleaning.png>; rel=preload; as=\"image\", </media/puppy.png>; rel=preload; as=\"image\", </media/lifestyle-golden.png>; rel=preload; as=\"image\", </media/senior.png>; rel=preload; as=\"image\", </media/foragegrid-logo.png>; rel=preload; as=\"image\"",
     "x-nextjs-stale-time": "300",
     "x-nextjs-prerender": "1",
     "x-next-cache-tags": "_N_T_/layout,_N_T_/page,_N_T_/,_N_T_/index"

@@ -34,21 +34,24 @@ export function Problem() {
   useLayoutEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        ".problem-copy > *",
-        { opacity: 0, y: 48 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.9,
-          stagger: 0.12,
-          ease: "power3.out",
-          scrollTrigger: { trigger: el, start: "top 82%" },
-        },
-      );
-    }, el);
-    return () => ctx.revert();
+    // Only initialize GSAP ScrollTrigger on desktop viewports to avoid mobile crashes
+    if (typeof window !== "undefined" && window.innerWidth >= 768) {
+      const ctx = gsap.context(() => {
+        gsap.fromTo(
+          ".problem-copy > *",
+          { opacity: 0, y: 48 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.9,
+            stagger: 0.12,
+            ease: "power3.out",
+            scrollTrigger: { trigger: el, start: "top 82%" },
+          },
+        );
+      }, el);
+      return () => ctx.revert();
+    }
   }, []);
 
   return (
