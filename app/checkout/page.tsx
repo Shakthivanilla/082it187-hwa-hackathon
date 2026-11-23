@@ -452,7 +452,7 @@ export default function CheckoutPage() {
               >
                 <h2 className="text-xl font-black text-ink">Processing</h2>
                 <p className="mt-4 text-sm font-semibold text-ink-2">
-                  Contacting the payment gateway. Please wait.
+                  Connecting...
                 </p>
               </motion.div>
             ) : null}
