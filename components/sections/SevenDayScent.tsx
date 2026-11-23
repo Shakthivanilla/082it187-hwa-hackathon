@@ -79,7 +79,6 @@ const SEVEN_DAY_SCENT_DATA = [
 
 export function SevenDayScent() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [selectedDay, setSelectedDay] = useState(null);
 
   const prevIndex = activeIndex === 0 ? 6 : activeIndex - 1;
   const nextIndex = activeIndex === 6 ? 0 : activeIndex + 1;
@@ -95,7 +94,7 @@ export function SevenDayScent() {
           <p className="mt-3 text-lg leading-relaxed text-ink-2">Rotate through seven natural scents, one per day, to keep your dog's nose engaged and mind sharp.</p>
         </div>
 
-        {/* Day Pills */}
+        {/* Day Pill Navigation */}
         <div className="mx-auto mb-12 flex gap-2">
           {SEVEN_DAY_SCENT_DATA.map((day) => (
             <button
@@ -112,55 +111,100 @@ export function SevenDayScent() {
           ))}
         </div>
 
-        {/* Scent Content Slider */}
-        <div className="mx-auto max-w-6xl">
-          <div className="flex gap-2">
-            {SEVEN_DAY_SCENT_DATA.map((day, index) => (
-              <motion.div
-                key={day.id}
-                className="relative flex-0 shrink-0 w-full md:w-1/4 lg:w-1/5 overflow-hidden rounded-2xl border border-parchment bg-white p-4 shadow-sm transition-all duration-300 hover:shadow-lg"
-                whileHover={{ scale: 1.02 }}
-                style={{ transform: `translateX(${index - activeIndex}0%)` }}
-              >
-                <img
-                  src={day.img}
-                  alt={day.scent}
-                  className="w-full h-48 object-cover"
-                />
-                <div className="absolute inset-0 rounded-2xl background-gradient from-black/40 to-transparent" />
-                <div className="absolute left-1/2 bottom-2 -translate-x-1/2 text-center">
-                  <p className="text-lg font-black text-ink">{day.day}</p>
-                  <p className="mt-1 text-sm font-bold text-blue-700">{day.scent}</p>
-                  <p className="mt-1 text-xs text-amber-600">{day.puzzleRule}</p>
-                  <p className="mt-1 text-xs text-amber-400">{day.difficulty}</p>
-                  <div className="mt-2 flex items-center justify-center gap-1">
-                    <PawIcon size={12} className="text-amber-500" />
-                    <span className="text-amber-400 text-xs">{day.sound}</span>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+        {/* Two-column Stage: Active Day (left) + Details (right) */}
+        <div className="mx-auto max-w-6xl flex flex-col md:flex-row gap-12 items-center">
+          {/* LEFT: Active Day Image with Palette Aura */}
+          <motion.div
+            key="active-day"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 20 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="relative flex-shrink-0 w-full md:w-1/2 rounded-xl overflow-hidden shadow-2xl"
+            style={{
+              transform: `scale(${activeIndex === 0 ? 1 : 0.95})`,
+            }}
+          >
+            <img
+              src={currentDay.img}
+              alt={currentDay.scent}
+              className="w-full h-[400px] object-cover"
+              style={{
+                borderRadius: activeIndex === 0 ? "12px 12px 0 0" : "0",
+              }}
+            />
+            {/* Soft pulsing palette aura - only on active day */}
+            <div
+              className={`absolute inset-0 rounded-xl opacity-30 transition-opacity duration-200 ${
+                activeIndex === 0 ? "from-amber-500 via-yellow-500 to-amber-200" : ""
+              }`}
+            />
+            {/* Difficulty meter on image */}
+            <div className="absolute bottom-0 left-0 right-0 p-4">
+              <div className="flex items-center gap-2 text-xs text-amber-400">
+                <PawIcon size={10} className="text-amber-500" />
+                <span>{currentDay.difficulty}</span>
+              </div>
+            </div>
+          </motion.div>
 
-          {/* Navigation Buttons */}
-          <div className="mt-8 flex justify-between">
-            <button
-              type="button"
-              onClick={() => setActiveIndex(prevIndex)}
-              className="rounded-full bg-white/20 px-4 py-2 text-sm font-black text-ink transition-colors"
-              aria-label="Previous day"
-            >
-              Previous
-            </button>
-            <button
-              type="button"
-              onClick={() => setActiveIndex(nextIndex)}
-              className="rounded-full bg-white/20 px-4 py-2 text-sm font-black text-ink transition-colors"
-              aria-label="Next day"
-            >
-              Next
-            </button>
-          </div>
+          {/* RIGHT: Day Details Pane */}
+          <motion.div
+            key="details-pane"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="relative w-full md:w-1/2 space-y-6 text-center"
+          >
+            <div>
+              <p className="text-lg font-black text-ink uppercase tracking-[0.2em]">{currentDay.day}</p>
+              <p className="mt-2 text-3xl font-bold text-blue-700">{currentDay.scent}</p>
+            </div>
+
+            {/* Sound Label/Icon */}
+            <div className="flex items-center justify-center gap-2">
+              <PawIcon size={16} className="text-amber-500" />
+              <span className="text-amber-400 text-sm">{currentDay.sound}</span>
+            </div>
+
+            {/* Puzzle Rule */}
+            <p className="mt-3 text-sm text-amber-600 font-black uppercase tracking-[0.1em]">{currentDay.puzzleRule}</p>
+
+            {/* Difficulty Meter Visual */}
+            <div className="mt-3 flex items-center justify-center gap-2">
+              {[1, 2, 3].map((paw) => (
+                <PawIcon
+                  key={paw}
+                  size={20}
+                  className={`text-amber-500 ${
+                    paw <= 3 ? "filled" : "outline"
+                  } transition-colors`}
+                />
+              ))}
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Navigation Buttons */}
+        <div className="mt-8 flex justify-between">
+          <button
+            type="button"
+            onClick={() => setActiveIndex(prevIndex)}
+            className="rounded-full bg-white/20 px-4 py-2 text-sm font-black text-ink transition-colors hover:bg-white/30"
+            aria-label="Previous day"
+            disabled={activeIndex === 0}
+          >
+            Previous
+          </button>
+          <button
+            type="button"
+            onClick={() => setActiveIndex(nextIndex)}
+            className="rounded-full bg-white/20 px-4 py-2 text-sm font-black text-ink transition-colors hover:bg-white/30"
+            aria-label="Next day"
+          >
+            Next
+          </button>
         </div>
       </div>
     </section>
