@@ -22,7 +22,9 @@ export default function CheckoutPage() {
   const [contact, setContact] = useState({ name: "", mobile: "" });
   const [address, setAddress] = useState({
     name: "",
-    line: "",
+    flat: "",
+    street: "",
+    landmark: "",
     city: "",
     state: "",
     pin: "",
@@ -49,7 +51,7 @@ export default function CheckoutPage() {
   const validateContact = () => {
     const next: Record<string, string> = {};
     if (!contact.name.trim()) next.name = "Name is required";
-    if (!/^[6-9]\d{9}$/.test(contact.mobile)) next.mobile = "Enter a valid 10 digit mobile";
+    if (!/^\d{10}$/.test(contact.mobile)) next.mobile = "Enter a valid 10 digit mobile";
     setErrors(next);
     return Object.keys(next).length === 0;
   };
@@ -57,7 +59,11 @@ export default function CheckoutPage() {
   const validateAddress = () => {
     const next: Record<string, string> = {};
     if (!address.name.trim()) next.name = "Name is required";
-    if (!address.line.trim()) next.line = "Address is required";
+    if (!address.flat.trim()) next.flat = "Flat/house number is required";
+    if (!address.street.trim()) next.street = "Street address is required";
+    if (!address.landmark.trim()) next.landmark = "Landmark is required";
+    if (!address.city.trim()) next.city = "City is required";
+    if (!address.state.trim()) next.state = "State is required";
     if (!/^\d{6}$/.test(address.pin)) next.pin = "Enter a valid 6 digit PIN";
     setErrors(next);
     return Object.keys(next).length === 0;
@@ -98,6 +104,9 @@ export default function CheckoutPage() {
             pin: address.pin || "600001",
             city: address.city || "Mumbai",
             state: address.state || "Maharashtra",
+            flat: address.flat || "",
+            street: address.street || "",
+            landmark: address.landmark || "",
           },
           paymentMethod: payment,
           upiId: contact.mobile,
@@ -235,10 +244,9 @@ export default function CheckoutPage() {
                         }}
                       >
                         <span className="font-bold text-ink">{label}</span>
-{payment === value ? (
+                        {payment === value ? (
                           <span className="text-xs text-amber-900">Selected</span>
-                        ) : null
-                        }
+                        ) : null}
                       </button>
                     ))}
                   </div>
@@ -267,14 +275,34 @@ export default function CheckoutPage() {
                 {errors.name ? <p className="mt-2 text-xs font-bold text-red-700">{errors.name}</p> : null}
 
                 <label className="mt-6 block text-xs font-black uppercase tracking-[0.2em] text-ink-2">
+                  Flat / House no
+                </label>
+                <input
+                  value={address.flat}
+                  onChange={(event) => setAddress({ ...address, flat: event.target.value })}
+                  className="mt-2 h-14 w-full rounded-xl border border-parchment bg-cream px-6 text-sm font-bold text-ink"
+                />
+                {errors.flat ? <p className="mt-2 text-xs font-bold text-red-700">{errors.flat}</p> : null}
+
+                <label className="mt-6 block text-xs font-black uppercase tracking-[0.2em] text-ink-2">
                   Street address
                 </label>
                 <input
-                  value={address.line}
-                  onChange={(event) => setAddress({ ...address, line: event.target.value })}
+                  value={address.street}
+                  onChange={(event) => setAddress({ ...address, street: event.target.value })}
                   className="mt-2 h-14 w-full rounded-xl border border-parchment bg-cream px-6 text-sm font-bold text-ink"
                 />
-                {errors.line ? <p className="mt-2 text-xs font-bold text-red-700">{errors.line}</p> : null}
+                {errors.street ? <p className="mt-2 text-xs font-bold text-red-700">{errors.street}</p> : null}
+
+                <label className="mt-6 block text-xs font-black uppercase tracking-[0.2em] text-ink-2">
+                  Landmark
+                </label>
+                <input
+                  value={address.landmark}
+                  onChange={(event) => setAddress({ ...address, landmark: event.target.value })}
+                  className="mt-2 h-14 w-full rounded-xl border border-parchment bg-cream px-6 text-sm font-bold text-ink"
+                />
+                {errors.landmark ? <p className="mt-2 text-xs font-bold text-red-700">{errors.landmark}</p> : null}
 
                 <label className="mt-6 block text-xs font-black uppercase tracking-[0.2em] text-ink-2">
                   City
@@ -285,6 +313,16 @@ export default function CheckoutPage() {
                   className="mt-2 h-14 w-full rounded-xl border border-parchment bg-cream px-6 text-sm font-bold text-ink"
                 />
                 {errors.city ? <p className="mt-2 text-xs font-bold text-red-700">{errors.city}</p> : null}
+
+                <label className="mt-6 block text-xs font-black uppercase tracking-[0.2em] text-ink-2">
+                  State
+                </label>
+                <input
+                  value={address.state}
+                  onChange={(event) => setAddress({ ...address, state: event.target.value })}
+                  className="mt-2 h-14 w-full rounded-xl border border-parchment bg-cream px-6 text-sm font-bold text-ink"
+                />
+                {errors.state ? <p className="mt-2 text-xs font-bold text-red-700">{errors.state}</p> : null}
 
                 <label className="mt-6 block text-xs font-black uppercase tracking-[0.2em] text-ink-2">
                   PIN ( 6 digits )
@@ -310,7 +348,7 @@ export default function CheckoutPage() {
                     Back
                   </button>
                   <button type="button" onClick={() => goStep(2)} className="rounded-full bg-yellow-400 min-h-14 px-8 py-3 text-sm font-black text-amber-950 mt-4">
-                    Next
+                    Continue
                   </button>
                 </div>
               </motion.div>
@@ -356,10 +394,10 @@ export default function CheckoutPage() {
                   <span className="text-2xl font-black text-ink">{fmt(total)}</span>
                 </div>
 
-                <div className="mt-8">
-                  <p className="text-xs font-black uppercase tracking-[0.2em] text-ink-2">
+                <div className="mt-8 flex items-center justify-between">
+                  <span className="text-xs font-black uppercase tracking-[0.2em] text-ink-2">
                     GST inclusive total
-                  </p>
+                  </span>
                   <span className="text-2xl font-black text-ink">{fmt(total)}</span>
                 </div>
 
@@ -383,10 +421,10 @@ export default function CheckoutPage() {
                       }}
                     >
                       <span className="font-bold text-ink">{label}</span>
-{payment === value ? (
-                          <span className="text-xs text-amber-900">Selected</span>
-                        ) : null}
-                      </div>
+                      {payment === value ? (
+                        <span className="text-xs text-amber-900">Selected</span>
+                      ) : null}
+                    </div>
                   ))}
                 </div>
 
