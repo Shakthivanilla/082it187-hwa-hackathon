@@ -1,10 +1,10 @@
 "use client";
 
 const REVIEWS = [
-  { dog: "Bruno", detail: "India - Bengaluru", text: "Our pup finally looks as happy as he sounds." },
+  { dog: "Bruno", detail: "Bruno, India - Bengaluru", text: "Our pup finally looks as happy as he sounds." },
   { dog: "Simba", detail: "Golden Retriever - Chennai", text: "The scent wheel is genius. He is obsessed." },
   { dog: "Coco", detail: "Beagle - Pune", text: "Boredom gone. Nap scheduled." },
-  { dog: "Rani", detail: "Madurai", text: "Three stars. Wait - four stars. Much better." },
+  { dog: "Rani", detail: "Rani, Rajapalayam - Madurai", text: "Three stars. Wait - four stars. Much better." },
   { dog: "Oreo", detail: "Shih Tzu - Mumbai", text: "Small dog, big console. No regrets." },
   { dog: "Milo", detail: "Goa", text: "Sea breeze and sniff puzzles. Perfect combo." },
 ];

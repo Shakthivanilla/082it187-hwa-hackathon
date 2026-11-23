@@ -24,13 +24,28 @@ function AnimatedCheck() {
   );
 }
 
-const ROWS = [
-  { need: "Boredom", grid: true, toy: false },
-  { need: "Separation Stress", grid: true, toy: false },
-  { need: "Portion Control", grid: true, toy: false },
-  { need: "Clean-Up", grid: true, toy: false },
-  { need: "Daily Novelty", grid: true, toy: false },
-];
+const PRODUCTS = {
+  ForageGrid: {
+    price: "₹2,999",
+    features: ["6-zone console", "6-chamber scent wheel", "Daily WiFi games"],
+  },
+  "Stuffed Chew Toy": {
+    price: "₹899",
+    features: ["Stuffing", "Squeaker", "Basic chew"],
+  },
+  "Puzzle Toy": {
+    price: "₹1,299",
+    features: ["Treat compartments", "Difficulty levels"],
+  },
+  "Automatic Feeder": {
+    price: "₹3,499",
+    features: ["Scheduled meals", "Portion control", "App control"],
+  },
+  "Camera Treat Tosser": {
+    price: "₹4,999",
+    features: ["Remote tossing", "Video streaming", "Motion detection"],
+  },
+};
 
 export function Comparison() {
   return (
@@ -54,17 +69,47 @@ export function Comparison() {
               </tr>
             </thead>
             <tbody>
-              {ROWS.map((row) => (
-                <tr key={row.need} className="border-t border-parchment">
-                  <td className="px-6 py-5 text-base font-bold text-ink">{row.need}</td>
-                  <td className="px-6 py-5">
-                    {row.grid ? <AnimatedCheck /> : <span className="text-ink-2">-</span>}
-                  </td>
-                  <td className="px-6 py-5 text-ink-2">-</td>
-                </tr>
-              ))}
+              {[
+                "Boredom",
+                "Separation Stress",
+                "Portion Control",
+                "Clean-Up",
+                "Daily Novelty",
+              ].map((need) => {
+                const forageFeatures = PRODUCTS.ForageGrid.features.join(", ");
+                return (
+                  <tr key={need} className="border-t border-parchment">
+                    <td className="px-6 py-5 text-base font-bold text-ink">{need}</td>
+                    <td className="px-6 py-5">
+                      <AnimatedCheck />
+                      <span className="text-ink ml-2">{forageFeatures}</span>
+                    </td>
+                    <td className="px-6 py-5 text-ink-2">{PRODUCTS["Stuffed Chew Toy"].features[0]}</td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
+        </div>
+
+        {/* Product price table below */}
+        <div className="mt-14 grid grid-cols-2 gap-4 md:grid-cols-5">
+          {[
+            { name: "ForageGrid", price: PRODUCTS.ForageGrid.price, isForageGrid: true },
+            { name: "Stuffed Chew Toy", price: PRODUCTS["Stuffed Chew Toy"].price },
+            { name: "Puzzle Toy", price: PRODUCTS["Puzzle Toy"].price },
+            { name: "Auto. Feeder", price: PRODUCTS["Automatic Feeder"].price },
+            { name: "Camera Toser", price: PRODUCTS["Camera Treat Tosser"].price },
+          ].map((product) => (
+            <div
+              key={product.name}
+              className="rounded-2xl border border-parchment bg-white p-4 shadow-sm text-center"
+              style={{ borderColor: product.isForageGrid ? "#facc15" : "transparent" }}
+            >
+              <p className="font-black text-ink">{product.name}</p>
+              <p className="mt-2 text-2xl font-bold text-amber-600">{product.price}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

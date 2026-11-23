@@ -63,7 +63,7 @@ export function BentoGrid() {
     { icon: PawIcon, title: "Stops Boredom", text: "Six scent chambers plus daily puzzle rules turn idle hours into real nose-work.", accent: "#facc15" },
     { icon: MoonIcon, title: "Eases Separation Stress", text: "Focused sniffing releases dopamine, so the dog settles instead of fixating on the door.", accent: "#60a5fa" },
     { icon: BoneIcon, title: "No More Overfeeding", text: "Your dog's regular kibble only, portion-tuned from weight and age.", accent: "#d97706" },
-    { icon: RefreshCcwIcon, title: "Shorter Morning Clean-Up", text: "Pop-out chambers rinse fast, so the morning stays calm instead of scrubb-heavy.", accent: "#a16207" },
+    { icon: RefreshCcwIcon, title: "Shorter Morning Clean-Up", text: "Pop-out chambers rinse fast, so the morning stays calm instead of scrub-heavy.", accent: "#a16207" },
   ];
 
   return (

@@ -5,27 +5,28 @@ import { AnimatePresence, motion } from "framer-motion";
 import { XIcon } from "@/components/icons";
 
 interface HeroVideoModalProps {
-  open: boolean;
+  isOpen: boolean;
   onClose: () => void;
+  videoSrc: string;
 }
 
-export function HeroVideoModal({ open, onClose }: HeroVideoModalProps) {
+export function HeroVideoModal({ isOpen, onClose, videoSrc }: HeroVideoModalProps) {
   const [videoPaused, setVideoPaused] = useState(true);
 
   useEffect(() => {
-    if (!open) return;
+    if (!isOpen) return;
     const onKey = (event: KeyboardEvent) => {
       if (event.key === "Escape") onClose();
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [open, onClose]);
+  }, [isOpen, onClose]);
 
   const togglePause = () => setVideoPaused(!videoPaused);
 
   return (
     <AnimatePresence>
-      {open ? (
+      {isOpen ? (
         <motion.div
           className="fixed inset-0 z-[600] flex items-center justify-center bg-night/90 p-4 backdrop-blur-md"
           initial={{ opacity: 0 }}
@@ -51,10 +52,9 @@ export function HeroVideoModal({ open, onClose }: HeroVideoModalProps) {
             </button>
             <video
               className="aspect-video w-full bg-black"
-              src="/media/foragegrid-demo.mp4"
+              src={videoSrc}
               poster="/media/hero-console.png"
               controls
-              autoPlay
               playsInline
             />
             <button

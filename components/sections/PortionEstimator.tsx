@@ -9,7 +9,7 @@ const kgFactor = (age: string) =>
   age === "puppy" ? 0.065 : age === "senior" ? 0.025 : 0.025;
 
 export function PortionEstimator() {
-  const [weight, setWeight] = useState(30);
+  const [weight, setWeight] = useState(15);
   const [age, setAge] = useState("adult");
   const [activity, setActivity] = useState("Moderate");
 
