@@ -82,31 +82,31 @@ export function ScentWheel() {
           </p>
         </div>
 
-        <div className="mx-auto mt-16 flex gap-2">
-          {DAILY_ITEMS.map((item, index) => (
-            <motion.div
-              key={item.day}
-              className="relative flex-0 shrink-0 w-20 h-32 overflow-hidden rounded-2xl border border-parchment bg-white p-2 shadow-sm transition-all duration-300 hover:shadow-lg"
-              whileHover={{ scale: 1.02 }}
-              onClick={() => setActiveIndex(index)}
-            >
-              <img
-                src={item.img}
-                alt={item.day}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500"
-                style={{ transform: `translateX(${
-                  (index - activeIndex) * 100
-                }%) rotate(${activeIndex === index ? 0 : -10}deg)` }}
-              />
-              <div className="absolute inset-0 rounded-2xl background-gradient from-black/30 to-transparent" />
-              <div className="absolute left-1/2 bottom-2 -translate-x-1/2 text-center">
-                <p className="text-lg font-black text-ink">{item.day}</p>
-                <p className="mt-1 text-sm font-bold text-blue-700">{item.scent}</p>
-                <p className="mt-1 text-xs text-amber-600">{item.puzzleRule}</p>
-                <p className="mt-1 text-xs text-amber-400">{item.difficulty}</p>
+        <div className="mt-16 max-w-4xl mx-auto">
+          <motion.div
+            className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden"
+            whileHover={{ scale: 1.02 }}
+            onClick={() => setActiveIndex(activeIndex)}
+          >
+            <img
+              src={currentItem.img}
+              alt={currentItem.day}
+              className="w-full h-full object-cover transition-transform duration-500"
+            />
+            <div
+              className="absolute inset-0 rounded-2xl background-gradient from-black/30 to-transparent"
+            />
+            <div className="absolute left-1/2 bottom-2 -translate-x-1/2 text-center">
+              <p className="text-lg font-black text-ink">{currentItem.day}</p>
+              <p className="mt-1 text-xl font-bold text-blue-700">{currentItem.scent}</p>
+              <p className="mt-1 text-sm text-amber-600">{currentItem.puzzleRule}</p>
+              <div className="mt-2 flex gap-1">
+                {[1, 2, 3].map((paw) => (
+                  <PawIcon key={paw} size={14} className="text-amber-500" />
+                ))}
               </div>
-            </motion.div>
-          ))}
+            </div>
+          </motion.div>
         </div>
 
         <div className="mt-8 flex justify-between">
@@ -115,6 +115,7 @@ export function ScentWheel() {
             onClick={() => setActiveIndex(prevIndex)}
             className="rounded-full bg-white/20 px-4 py-2 text-sm font-black text-ink transition-colors"
             aria-label="Previous day"
+            disabled={activeIndex === 0}
           >
             Previous
           </button>
