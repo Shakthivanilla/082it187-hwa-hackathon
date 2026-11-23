@@ -6,12 +6,12 @@ import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { MeshDistortMaterial } from "@react-three/drei";
 
-function Blob() {
+function Blob({ color }: { color?: string }) {
   return (
     <mesh>
       <sphereGeometry args={[1.15, 64, 64]} />
       <MeshDistortMaterial
-        color="#facc15"
+        color={color}
         distort={0.32}
         speed={2.1}
         roughness={0.4}
@@ -21,7 +21,7 @@ function Blob() {
   );
 }
 
-export function HeroCanvas() {
+export function HeroCanvas({ color }: { color?: string }) {
   const [model, setModel] = useState<THREE.Group | null>(null);
 
   useEffect(() => {
@@ -53,7 +53,7 @@ export function HeroCanvas() {
       <directionalLight position={[4, 5, 6]} intensity={2.4} />
       <pointLight position={[-4, -2, 4]} intensity={26} color="#facc15" />
       <pointLight position={[4, -3, -2]} intensity={14} color="#60a5fa" />
-      {model ? <primitive object={model} /> : <Blob />}
+      {model ? <primitive object={model} /> : <Blob color={color} />}
     </Canvas>
   );
 }

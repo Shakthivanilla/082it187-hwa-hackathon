@@ -6,6 +6,11 @@ import { ScentWheel } from "@/components/sections/ScentWheel";
 import { BentoGrid } from "@/components/sections/BentoGrid";
 import { Comparison } from "@/components/sections/Comparison";
 import { Safety } from "@/components/sections/Safety";
+import { BuildYourForageGrid } from "@/components/sections/BuildYourForageGrid";
+import { PortionEstimator } from "@/components/sections/PortionEstimator";
+import { ReviewMarquee } from "@/components/sections/ReviewMarquee";
+import { Faq } from "@/components/sections/Faq";
+import { Cta } from "@/components/sections/Cta";
 
 export default function Home() {
   return (
@@ -18,6 +23,11 @@ export default function Home() {
       <BentoGrid />
       <Comparison />
       <Safety />
+      <BuildYourForageGrid />
+      <PortionEstimator />
+      <ReviewMarquee />
+      <Faq />
+      <Cta />
     </main>
   );
 }
