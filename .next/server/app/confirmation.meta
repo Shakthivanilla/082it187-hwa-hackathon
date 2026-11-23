@@ -1,0 +1,36 @@
+{
+  "status": 200,
+  "headers": {
+    "link": "</_next/static/media/07c7676b89ed2778-s.p.2bn3s6zvc0dyp.woff2>; rel=preload; as=\"font\"; crossorigin=\"\"; type=\"font/woff2\", </media/foragegrid-logo.png>; rel=preload; as=\"image\"",
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/confirmation/layout,_N_T_/confirmation/page,_N_T_/confirmation"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/confirmation/__PAGE__"
+  ],
+  "prefetchHints": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49312,
+            "slots": null
+          }
+        }
+      }
+    }
+  },
+  "routeCache": {
+    "key": "/route-cache/APP_PAGE/94cb7b883f9160143e1713f6e4d35d15ecc39da88fd80deda7a0a0329bb27eaf/$/confirmation",
+    "owner": {
+      "kind": "APP_PAGE",
+      "sourceRoute": "/confirmation/page"
+    },
+    "isFallback": false
+  }
+}

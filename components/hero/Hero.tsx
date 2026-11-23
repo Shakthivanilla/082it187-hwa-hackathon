@@ -9,20 +9,17 @@ import { PawIcon, PlayIcon, ChevronRightIcon } from "@/components/icons";
 
 const PAW_ANIMATION_DELAY = 1500;
 
-// Check if user has visited before
-const HAS_VISITED = typeof window !== "undefined" && localStorage.getItem("foragegrid_visited") === "1";
-
+// Simplified: always show paw animation on mount, no localStorage tracking
 export function Hero() {
-  // Mark as visited on first render (or after delay)
+  const [showPaw, setShowPaw] = useState(true);
+  const [videoPaused, setVideoPaused] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+
   useEffect(() => {
-    const timer = setTimeout(() => {
-      localStorage.setItem("foragegrid_visited", "1");
-    }, PAW_ANIMATION_DELAY);
+    // Always show paw animation on first visit, hide after delay
+    const timer = setTimeout(() => setShowPaw(false), PAW_ANIMATION_DELAY);
     return () => clearTimeout(timer);
   }, []);
-
-  const [videoPaused, setVideoPaused] = useState(!HAS_VISITED);
-  const [modalOpen, setModalOpen] = useState(false);
 
   const handlePause = () => setVideoPaused(!videoPaused);
   const handleSkip = () => setModalOpen(false);
@@ -32,8 +29,8 @@ export function Hero() {
       id="home"
       className="relative h-[100svh] min-h-[620px] overflow-hidden bg-night text-cream"
     >
-      {/* Paw loading animation only on first visit */}
-      {HAS_VISITED ? null : (
+      {/* Paw loading animation */}
+      {showPaw ? (
         <div
           className="fixed inset-0 flex items-center justify-center z-[500]"
           style={{ backgroundColor: "#0e1014" }}
@@ -44,7 +41,7 @@ export function Hero() {
             <p className="text-sm text-cream/60">Loading your personalized experience...</p>
           </div>
         </div>
-      )}
+      ) : null}
 
       {/* Video background */}
       <div className="relative h-full w-full">
@@ -73,7 +70,7 @@ export function Hero() {
           className="absolute top-6 right-6 rounded-full bg-white/90 backdrop-blur px-5 py-2 text-sm font-black text-amber-950 transition-colors hover:scale-[1.05]"
           aria-label={videoPaused ? "Play video" : "Pause video"}
         >
-          <PlayIcon size={20} className="mr-2" />
+          <PlayIcon size={20} />
           {videoPaused ? "Play" : "Pause"}
         </button>
 
@@ -125,6 +122,7 @@ export function Hero() {
         onClick={() => document.getElementById("problem")?.scrollIntoView({ behavior: "smooth" })}
         aria-label="Scroll to content"
         className="absolute bottom-6 left-1/2 z-20 -translate-x-1/2"
+        style={{ zIndex: 100 }}
       >
         <span className="flex flex-col items-center gap-2 text-[10px] font-bold uppercase tracking-[0.28em] text-cream/50">
           <PawIcon size={22} className="animate-paw text-yellow-400" />

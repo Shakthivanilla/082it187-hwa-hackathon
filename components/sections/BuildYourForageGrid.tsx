@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { HeroCanvas } from "@/components/hero/HeroCanvas";
 import { BoneIcon } from "@/components/icons";
+import { useRouter } from "next/navigation";
 import { useForageGrid } from "@/lib/store";
 
 const CONSOLE_PRICE = 7999;
@@ -35,6 +36,7 @@ const BREEDS = ["Scent Hounds", "Working Brains", "Earth Dogs", "Power Chewers"]
 const PLANS = ["One-time Console", "Monthly Refresh Pack", "Yearly Refresh Pack"];
 
 export function BuildYourForageGrid() {
+  const router = useRouter();
   const [age, setAge] = useState("puppy");
   const [breed, setBreed] = useState("Scent Hounds");
   const [plan, setPlan] = useState("One-time Console");
@@ -49,7 +51,7 @@ export function BuildYourForageGrid() {
 
   const handleAddToCart = () => {
     addItem({ id: "foragegrid-console", name: `ForageGrid - ${breed}`, price: CONSOLE_PRICE, qty: 1 });
-    setFlyKey((value) => value + 1);
+    router.push("/checkout");
   };
 
   return (

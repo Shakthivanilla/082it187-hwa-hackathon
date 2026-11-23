@@ -1,0 +1,44 @@
+#1:"$Sreact.fragment"
+2:"/_next/static/chunks/1qjrsp_gj1rjz.js"
+3:"/_next/static/chunks/2mi_hgqypcix7.js"
+4:"/_next/static/chunks/35say-u28gi6m.js"
+5:"/_next/static/chunks/3x9a8p91m646-.js"
+6:I[92352,["$2","$3","$4","$5"],"LenisProvider"]
+7:I[76352,["$2","$3","$4","$5"],"TopProgress"]
+8:I[98562,["$2","$3","$4","$5"],"Loader"]
+9:I[13293,["$2","$3","$4","$5"],"Header"]
+a:I[39756,["$2","$3","$4","$5"],"default"]
+b:I[37457,["$2","$3","$4","$5"],"default"]
+c:I[99172,["$2","$3","$4","$5"],"Footer"]
+11:I[47257,["$2","$3","$4","$5"],"ClientPageRoot"]
+12:"/_next/static/chunks/11hh8no1-q24v.js"
+13:I[37142,["$2","$3","$4","$5","$12"],"default"]
+14:I[97367,["$2","$3","$4","$5"],"OutletBoundary"]
+15:"$Sreact.suspense"
+17:"ViewportBoundary"
+18:I[97367,["$2","$3","$4","$5"],"$17"]
+1a:"MetadataBoundary"
+1b:I[97367,["$2","$3","$4","$5"],"$1a"]
+1e:I[68027,["$2","$3","$4","$5"],"default",1]
+:HL["/_next/static/chunks/12wvyozmnamk_.css","style"]
+:HL["/_next/static/media/07c7676b89ed2778-s.p.2bn3s6zvc0dyp.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+d:X
+f:X
+10:[["children",{"s":"__PAGE__","h":514,"d":{"r":["$","$1","c",{"children":[["$","$L11",null,{"Component":"$13","serverProvidedParams":null}],[["$","script","script-0",{"src":"/_next/static/chunks/11hh8no1-q24v.js","async":true,"nonce":"$undefined"}]],["$","$L14",null,{"children":["$","$15",null,{"name":"Next.MetadataOutlet","children":"$@16"}]}]]}],"p":true,"v":"$f"}}]]
+e:[["children",{"s":"checkout","h":514,"d":{"r":["$","$1","c",{"children":[null,["$","$La",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$Lb",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],"p":true,"v":"$f"},"c":"$Q10"}]]
+1d:X
+1f:X
+20:X
+0:{"P":null,"c":["","checkout"],"q":"","i":false,"t":{"t":{"s":"","h":530,"d":{"r":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/12wvyozmnamk_.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/1qjrsp_gj1rjz.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/2mi_hgqypcix7.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/35say-u28gi6m.js","async":true,"nonce":"$undefined"}],["$","script","script-3",{"src":"/_next/static/chunks/3x9a8p91m646-.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"LINzvG_variable h-full antialiased","children":["$","body",null,{"className":"min-h-full flex flex-col bg-white font-sans text-ink","children":["$","$L6",null,{"children":[["$","$L7",null,{}],["$","$L8",null,{}],["$","$L9",null,{}],["$","$La",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$Lb",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}],["$","$Lc",null,{}]]}]}]}]]}],"p":true,"v":"$d"},"c":"$Qe"},"h":{"r":["$","$1","h",{"children":[null,["$","$L18",null,{"children":"$L19"}],["$","$L1b",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$15",null,{"name":"Next.Metadata","children":"$L1c"}]}],null]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"p":true,"v":"$1d"}},"m":"$undefined","G":["$1e",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/12wvyozmnamk_.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"S":true,"r":"$1f","s":"$20","a":"$@21","l":"$undefined","p":"$undefined","d":"$undefined","b":"5Yip3LbHgeIgq5pc5PvKZ","u":"$@22"}
+f:C
+20:300
+19:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+23:I[27201,["$2","$3","$4","$5"],"IconMark"]
+16:null
+1c:[["$","title","0",{"children":"ForageGrid | Smart 6-Zone Kibble Console for Dogs"}],["$","meta","1",{"name":"description","content":"ForageGrid is the smart 6-zone kibble console that turns lonely hours into sniffing, solving and calm."}],["$","meta","2",{"property":"og:title","content":"ForageGrid | Smart 6-Zone Kibble Console for Dogs"}],["$","meta","3",{"property":"og:description","content":"ForageGrid is the smart 6-zone kibble console that turns lonely hours into sniffing, solving and calm."}],["$","meta","4",{"property":"og:image","content":"https://082it187-hwa-hackathon-eight.vercel.app/media/foragegrid-hero.png"}],["$","meta","5",{"property":"og:type","content":"website"}],["$","meta","6",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","7",{"name":"twitter:title","content":"ForageGrid | Smart 6-Zone Kibble Console for Dogs"}],["$","meta","8",{"name":"twitter:description","content":"ForageGrid is the smart 6-zone kibble console that turns lonely hours into sniffing, solving and calm."}],["$","meta","9",{"name":"twitter:image","content":"https://082it187-hwa-hackathon-eight.vercel.app/media/foragegrid-hero.png"}],["$","link","10",{"rel":"icon","href":"/icon.svg"}],["$","$L23","11",{}]]
+20:C
+1d:C
+1f:C
+d:C
+22:false
+21:null

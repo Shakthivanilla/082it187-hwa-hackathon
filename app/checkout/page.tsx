@@ -137,17 +137,44 @@ export default function CheckoutPage() {
                 </label>
                 <input
                   value={contact.mobile}
-                  onChange={(event) => setContact({ ...contact, mobile: event.target.value.replace(/\D/g, "").slice(0, 10) })}
-                  inputMode="tel"
-                  placeholder="+91 9876543210"
+                  onChange={(event) => setContact({ ...contact, mobile: event.target.value })}
                   className="mt-2 h-14 w-full rounded-xl border border-parchment bg-cream px-6 text-sm font-bold text-ink"
                 />
                 {errors.mobile ? <p className="mt-2 text-xs font-bold text-red-700">{errors.mobile}</p> : null}
 
-                <div className="mt-8 flex justify-end">
-                  <button type="button" onClick={goNext} className="rounded-full bg-yellow-400 min-h-14 px-8 py-3 text-sm font-black text-amber-950">
-                    Continue
-                  </button>
+                <div className="mt-8">
+                  <h2 className="text-xl font-black text-ink">Payment method</h2>
+                  <p className="mt-2 text-sm font-bold text-ink-2">
+                    Select a payment method to proceed
+                  </p>
+                  <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                    {[
+                      ["upi", "UPI"],
+                      ["gpay", "GPay"],
+                      ["phonepe", "PhonePe"],
+                      ["paytm", "Paytm"],
+                      ["card", "Card"],
+                      ["netbanking", "NetBanking"],
+                      ["emi", "No-cost EMI"],
+                      ["cod", "Cash on Delivery"],
+                    ].map(([value, label]) => (
+                      <button
+                        key={value}
+                        type="button"
+                        onClick={() => setPayment(value)}
+                        className="rounded-2xl border p-3 text-left text-sm font-black transition-colors"
+                        style={{
+                          borderColor: payment === value ? "#facc15" : "#e7dcc8",
+                          backgroundColor: payment === value ? "#fffbeb" : "#fffdf6",
+                        }}
+                      >
+                        <span className="font-bold text-ink">{label}</span>
+                        {payment === value ? (
+                          <span className="text-xs text-amber-900">Selected</span>
+                        ) : null}
+                      </button>
+                    ))}
+                  </div>
                 </div>
               </motion.div>
             ) : null}
@@ -173,7 +200,7 @@ export default function CheckoutPage() {
                 {errors.name ? <p className="mt-2 text-xs font-bold text-red-700">{errors.name}</p> : null}
 
                 <label className="mt-6 block text-xs font-black uppercase tracking-[0.2em] text-ink-2">
-                  Address line
+                  Street address
                 </label>
                 <input
                   value={address.line}
@@ -182,62 +209,41 @@ export default function CheckoutPage() {
                 />
                 {errors.line ? <p className="mt-2 text-xs font-bold text-red-700">{errors.line}</p> : null}
 
-                <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                  <div>
-                    <label className="block text-xs font-black uppercase tracking-[0.2em] text-ink-2">
-                      PIN
-                    </label>
-                    <input
-                      value={address.pin}
-                      onChange={(event) => {
-                        const pin = event.target.value.replace(/\D/g, "").slice(0, 6);
-                        setAddress({ ...address, pin, city: PIN_LOCATIONS[pin] ? PIN_LOCATIONS[pin].split(",")[0] : address.city, state: PIN_LOCATIONS[pin] ? PIN_LOCATIONS[pin].split(",")[1] : address.state });
-                      }}
-                      inputMode="tel"
-                      maxLength={6}
-                      placeholder="600001"
-                      className="mt-2 h-14 w-full rounded-xl border border-parchment bg-cream px-6 text-sm font-bold text-ink"
-                    />
-                    {errors.pin ? <p className="mt-2 text-xs font-bold text-red-700">{errors.pin}</p> : null}
-                  </div>
-                  <div>
-                    <label className="block text-xs font-black uppercase tracking-[0.2em] text-ink-2">
-                      City
-                    </label>
-                    <input
-                      value={address.city}
-                      readOnly
-                      className="mt-2 h-14 w-full rounded-xl border border-parchment bg-cream px-6 text-sm font-bold text-ink"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-xs font-black uppercase tracking-[0.2em] text-ink-2">
-                      State
-                    </label>
-                    <input
-                      value={address.state}
-                      readOnly
-                      className="mt-2 h-14 w-full rounded-xl border border-parchment bg-cream px-6 text-sm font-bold text-ink"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-xs font-black uppercase tracking-[0.2em] text-ink-2">
-                      GSTIN ( optional )
-                    </label>
-                    <input
-                      value={address.gstin}
-                      onChange={(event) => setAddress({ ...address, gstin: event.target.value })}
-                      className="mt-2 h-14 w-full rounded-xl border border-parchment bg-cream px-6 text-sm font-bold text-ink"
-                    />
-                  </div>
-                </div>
+                <label className="mt-6 block text-xs font-black uppercase tracking-[0.2em] text-ink-2">
+                  City
+                </label>
+                <input
+                  value={address.city}
+                  onChange={(event) => setAddress({ ...address, city: event.target.value })}
+                  className="mt-2 h-14 w-full rounded-xl border border-parchment bg-cream px-6 text-sm font-bold text-ink"
+                />
+                {errors.city ? <p className="mt-2 text-xs font-bold text-red-700">{errors.city}</p> : null}
 
-                <div className="mt-8 flex justify-between">
+                <label className="mt-6 block text-xs font-black uppercase tracking-[0.2em] text-ink-2">
+                  PIN ( 6 digits )
+                </label>
+                <input
+                  value={address.pin}
+                  onChange={(event) => setAddress({ ...address, pin: event.target.value })}
+                  className="mt-2 h-14 w-full rounded-xl border border-parchment bg-cream px-6 text-sm font-bold text-ink"
+                />
+                {errors.pin ? <p className="mt-2 text-xs font-bold text-red-700">{errors.pin}</p> : null}
+
+                <label className="mt-6 block text-xs font-black uppercase tracking-[0.2em] text-ink-2">
+                  GSTIN (optional)
+                </label>
+                <input
+                  value={address.gstin}
+                  onChange={(event) => setAddress({ ...address, gstin: event.target.value })}
+                  className="mt-2 h-14 w-full rounded-xl border border-parchment bg-cream px-6 text-sm font-bold text-ink"
+                />
+
+                <div className="mt-8">
                   <button type="button" onClick={goBack} className="rounded-full border border-parchment bg-white min-h-14 px-8 py-3 text-sm font-black text-ink">
                     Back
                   </button>
-                  <button type="button" onClick={goNext} className="rounded-full bg-yellow-400 min-h-14 px-8 py-3 text-sm font-black text-amber-950">
-                    Continue
+                  <button type="button" onClick={goNext} className="rounded-full bg-yellow-400 min-h-14 px-8 py-3 text-sm font-black text-amber-950 mt-4">
+                    Next
                   </button>
                 </div>
               </motion.div>
@@ -252,22 +258,49 @@ export default function CheckoutPage() {
                 transition={{ duration: 0.25, ease: "easeOut" }}
                 className="rounded-3xl border border-parchment bg-white p-7 shadow-sm"
               >
-                <h2 className="text-xl font-black text-ink">Review &amp; Pay</h2>
-                <div className="mt-6 rounded-2xl border border-parchment bg-cream p-5">
-                  <p className="text-sm font-black text-ink">ForageGrid Console</p>
-                  <p className="mt-1 text-xs font-bold text-ink-2">1 unit</p>
-                  <div className="mt-3 flex items-center justify-between">
-                    <span className="text-xs font-black uppercase tracking-[0.2em] text-ink-2">
-                      GST inclusive total
-                    </span>
-                    <span className="text-2xl font-black text-ink">{fmt(total)}</span>
-                  </div>
+                <h2 className="text-xl font-black text-ink">Review & Pay</h2>
+                <div className="mt-6">
+                  <p className="text-xs font-black uppercase tracking-[0.2em] text-ink-2">
+                    Cart items
+                  </p>
+                  {cart.length === 0 ? (
+                    <p className="mt-2 text-sm font-bold text-red-700">Your cart is empty</p>
+                  ) : (
+                    cart.map((item) => (
+                      <div
+                        key={item.id}
+                        className="flex items-center gap-3 border-b border-parchment pb-3 mb-3"
+                      >
+                        <img
+                          src="/media/foragegrid-app.png"
+                          alt={item.name}
+                          className="h-10 w-10 rounded-2xl border border-parchment bg-white object-contain"
+                        />
+                        <div className="flex-1">
+                          <p className="text-sm font-black text-ink">{item.name}</p>
+                          <p className="text-sm font-bold text-blue-700">{fmt(item.price)} each</p>
+                        </div>
+                        <p className="text-sm font-black text-ink">{fmt(item.price)}</p>
+                      </div>
+                    ))
+                  )}
                 </div>
 
-                <h3 className="mt-8 text-sm font-black uppercase tracking-[0.2em] text-ink-2">
-                  Payment method
-                </h3>
-                <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                <div className="mt-8 flex items-center justify-between">
+                  <span className="text-xs font-black uppercase tracking-[0.2em] text-ink-2">
+                    Sub total
+                  </span>
+                  <span className="text-2xl font-black text-ink">{fmt(total)}</span>
+                </div>
+
+                <div className="mt-8">
+                  <p className="text-xs font-black uppercase tracking-[0.2em] text-ink-2">
+                    GST inclusive total
+                  </p>
+                  <span className="text-2xl font-black text-ink">{fmt(total)}</span>
+                </div>
+
+                <div className="mt-8 grid gap-3 sm:grid-cols-2">
                   {[
                     ["upi", "UPI"],
                     ["gpay", "GPay"],
@@ -275,41 +308,34 @@ export default function CheckoutPage() {
                     ["paytm", "Paytm"],
                     ["card", "Card"],
                     ["netbanking", "NetBanking"],
-                    ["emi", "EMI"],
-                    ["cod", "COD"],
+                    ["emi", "No-cost EMI"],
+                    ["cod", "Cash on Delivery"],
                   ].map(([value, label]) => (
-                    <button
+                    <div
                       key={value}
-                      type="button"
-                      onClick={() => setPayment(value)}
-                      className="rounded-2xl border p-4 text-left text-sm font-black"
+                      className="rounded-2xl border p-3 text-left text-sm font-black"
                       style={{
                         borderColor: payment === value ? "#facc15" : "#e7dcc8",
                         backgroundColor: payment === value ? "#fffbeb" : "#fffdf6",
                       }}
                     >
-                      {label}
-                    </button>
+                      <span className="font-bold text-ink">{label}</span>
+                      {payment === value ? (
+                        <span className="text-xs text-amber-900">Selected</span>
+                      ) : null}
+                    </div>
                   ))}
                 </div>
 
-                {payment === "upi" ? (
-                  <div className="mt-6 rounded-2xl border border-parchment bg-cream p-5">
-                    <p className="text-sm font-black text-ink">UPI ID</p>
-                    <input
-                      value={contact.mobile}
-                      readOnly
-                      className="mt-2 h-12 w-full rounded-xl border border-parchment bg-white px-5 text-sm font-bold text-ink"
-                    />
-                    <p className="mt-2 text-xs font-semibold text-ink-2">Scan or enter UPI ID to pay.</p>
-                  </div>
-                ) : null}
-
-                <div className="mt-8 flex justify-between">
+                <div className="mt-8">
                   <button type="button" onClick={goBack} className="rounded-full border border-parchment bg-white min-h-14 px-8 py-3 text-sm font-black text-ink">
                     Back
                   </button>
-                  <button type="button" onClick={handlePay} className="rounded-full bg-yellow-400 min-h-14 px-8 py-3 text-sm font-black text-amber-950">
+                  <button
+                    type="button"
+                    onClick={handlePay}
+                    className="rounded-full bg-yellow-400 min-h-14 px-8 py-3 text-sm font-black text-amber-950"
+                  >
                     Pay {fmt(total)}
                   </button>
                 </div>
@@ -326,7 +352,9 @@ export default function CheckoutPage() {
                 className="rounded-3xl border border-parchment bg-white p-7 shadow-sm"
               >
                 <h2 className="text-xl font-black text-ink">Processing</h2>
-                <p className="mt-4 text-sm font-semibold text-ink-2">Contacting the payment gateway. Please wait.</p>
+                <p className="mt-4 text-sm font-semibold text-ink-2">
+                  Contacting the payment gateway. Please wait.
+                </p>
               </motion.div>
             ) : null}
           </AnimatePresence>

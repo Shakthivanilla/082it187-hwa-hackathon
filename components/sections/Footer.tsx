@@ -82,13 +82,29 @@ export function Footer() {
           <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs font-semibold text-cream/60">
             <a href="#home" className="hover:text-cream">Home</a>
             <a href="#how-it-works" className="hover:text-cream">How it works</a>
-            <a href="#day-away" className="hover:text-cream">A Day While You are Away</a>
+            <a href="#day-away" className="hover:text-cream">A Day While You're Away</a>
             <a href="#safety" className="hover:text-cream">Safety</a>
             <a href="#faq" className="hover:text-cream">FAQ</a>
             <a href="#configure" className="hover:text-cream">Build Yours</a>
           </nav>
 
-          <p className="text-xs text-cream/50">
+          <div className="mt-8 flex flex-col items-center gap-2">
+            <p className="text-xs font-black uppercase tracking-[0.2em] text-cream/60">Support</p>
+            <a
+              href="tel:+91-7338726099"
+              className="hover:text-yellow-400 transition-colors"
+            >
+              +91-7338726099
+            </a>
+            <a
+              href="mailto:shakhtivanilla@gmail.com"
+              className="hover:text-yellow-400 transition-colors"
+            >
+              shakhtivanilla@gmail.com
+            </a>
+          </div>
+
+          <p className="mt-6 text-xs text-cream/50">
             Made with yellow, blue, grey and browns - the colors your pets can see and enjoy.
           </p>
           <p className="text-xs font-bold text-cream/70">ForageGrid. Demo storefront.</p>

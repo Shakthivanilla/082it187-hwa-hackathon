@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { XIcon } from "@/components/icons";
 
@@ -10,6 +10,8 @@ interface HeroVideoModalProps {
 }
 
 export function HeroVideoModal({ open, onClose }: HeroVideoModalProps) {
+  const [videoPaused, setVideoPaused] = useState(true);
+
   useEffect(() => {
     if (!open) return;
     const onKey = (event: KeyboardEvent) => {
@@ -18,6 +20,8 @@ export function HeroVideoModal({ open, onClose }: HeroVideoModalProps) {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [open, onClose]);
+
+  const togglePause = () => setVideoPaused(!videoPaused);
 
   return (
     <AnimatePresence>
@@ -53,6 +57,14 @@ export function HeroVideoModal({ open, onClose }: HeroVideoModalProps) {
               autoPlay
               playsInline
             />
+            <button
+              type="button"
+              onClick={togglePause}
+              className="absolute left-3 top-3 z-10 rounded-full bg-black/80 backdrop-blur px-3 py-1.5 text-xs font-black text-white transition-colors hover:bg-white/20"
+              aria-label={videoPaused ? "Play video" : "Pause video"}
+            >
+              {videoPaused ? "▶" : "❚❚"}
+            </button>
           </motion.div>
         </motion.div>
       ) : null}
