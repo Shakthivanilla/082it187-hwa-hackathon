@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useForageGrid } from "@/lib/store";
 import { useRouter } from "next/navigation";
@@ -35,6 +35,17 @@ export default function CheckoutPage() {
 
   const total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
 
+  // Sync step from URL hash on mount
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const hash = window.location.hash;
+      if (hash === "#step-0") setStep(0);
+      if (hash === "#step-1") setStep(1);
+      if (hash === "#step-2") setStep(2);
+      if (hash === "#step-3") setStep(3);
+    }
+  }, []);
+
   const validateContact = () => {
     const next: Record<string, string> = {};
     if (!contact.name.trim()) next.name = "Name is required";
@@ -52,21 +63,26 @@ export default function CheckoutPage() {
     return Object.keys(next).length === 0;
   };
 
-  const goNext = () => {
-    if (step === 0 && !validateContact()) return;
-    if (step === 1 && !validateAddress()) return;
-    setErrors({});
-    setStep((value) => Math.min(3, value + 1));
+  const goStep = (targetStep: number) => {
+    // Validate current step before moving
+    if (targetStep === 1 && !validateContact()) return;
+    if (targetStep === 2 && !validateAddress()) return;
+    setStep(targetStep);
+    // Update URL hash
+    window.location.hash = `step-${targetStep}`;
   };
 
   const goBack = () => {
     setErrors({});
     setStep((value) => Math.max(0, value - 1));
+    window.location.hash = `step-${step}`;
   };
 
   const handlePay = async () => {
-    if (!validateContact()) return;
-    if (step < 3 && !validateAddress()) return;
+    if (step < 2) {
+      if (step === 0 && !validateContact()) return;
+      if (step === 1 && !validateAddress()) return;
+    }
 
     setStep(3); // Move to processing step
 
@@ -95,7 +111,6 @@ export default function CheckoutPage() {
       if (data.status === "success") {
         setOrderSuccess(true);
         setOrderId(data.orderId);
-        // Navigate to confirmation page with order id
         router.push(`/confirmation?orderId=${data.orderId}`);
       } else {
         alert("Order placement failed. Please try again.");
@@ -119,27 +134,20 @@ export default function CheckoutPage() {
           </span>
         </div>
 
-        <div className="mt-8 flex items-center gap-2">
+        {/* Step Navigation Links */}
+        <div className="mt-6 flex gap-2">
           {STEPS.map((label, index) => (
-            <div key={label} className="flex flex-1 items-center gap-2">
-              <span
-                className={`grid h-8 w-8 place-items-center rounded-full text-xs font-black ${
-                  index <= step ? "bg-yellow-400 text-amber-950" : "bg-parchment text-ink-2"
-                }`}
-              >
-                {index + 1}
-              </span>
-              <span
-                className={`hidden text-xs font-black uppercase tracking-[0.18em] sm:block ${
-                  index <= step ? "text-ink" : "text-ink-2"
-                }`}
-              >
-                {label}
-              </span>
-              {index < STEPS.length - 1 ? (
-                <span className="mx-2 h-0.5 flex-1 bg-parchment" />
-              ) : null}
-            </div>
+            <button
+              key={label}
+              type="button"
+              onClick={() => goStep(index)}
+              className={`rounded-full bg-${index < step ? "yellow-400" : "transparent"} text-${index < step ? "amber-950" : "ink-2"} px-6 py-2 text-sm font-black transition-colors ${
+                index === step ? "border-yellow-400" : ""
+              } ${index < step ? "shadow-yellow-400/30" : ""} ${index <= step ? "font-bold" : ""} ${index < step ? "scale-[1.02]" : ""}`}
+              aria-label={label}
+            >
+              {label}
+            </button>
           ))}
         </div>
 
@@ -227,9 +235,10 @@ export default function CheckoutPage() {
                         }}
                       >
                         <span className="font-bold text-ink">{label}</span>
-                        {payment === value ? (
+{payment === value ? (
                           <span className="text-xs text-amber-900">Selected</span>
-                        ) : null}
+                        ) : null
+                        }
                       </button>
                     ))}
                   </div>
@@ -300,7 +309,7 @@ export default function CheckoutPage() {
                   <button type="button" onClick={goBack} className="rounded-full border border-parchment bg-white min-h-14 px-8 py-3 text-sm font-black text-ink">
                     Back
                   </button>
-                  <button type="button" onClick={goNext} className="rounded-full bg-yellow-400 min-h-14 px-8 py-3 text-sm font-black text-amber-950 mt-4">
+                  <button type="button" onClick={() => goStep(2)} className="rounded-full bg-yellow-400 min-h-14 px-8 py-3 text-sm font-black text-amber-950 mt-4">
                     Next
                   </button>
                 </div>
@@ -374,10 +383,10 @@ export default function CheckoutPage() {
                       }}
                     >
                       <span className="font-bold text-ink">{label}</span>
-                      {payment === value ? (
-                        <span className="text-xs text-amber-900">Selected</span>
-                      ) : null}
-                    </div>
+{payment === value ? (
+                          <span className="text-xs text-amber-900">Selected</span>
+                        ) : null}
+                      </div>
                   ))}
                 </div>
 
