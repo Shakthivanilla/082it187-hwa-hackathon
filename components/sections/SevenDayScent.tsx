@@ -94,24 +94,7 @@ export function SevenDayScent() {
           <p className="mt-3 text-lg leading-relaxed text-ink-2">Rotate through seven natural scents, one per day, to keep your dog's nose engaged and mind sharp.</p>
         </div>
 
-        {/* Day Pill Navigation */}
-        <div className="mx-auto mb-12 flex gap-2">
-          {SEVEN_DAY_SCENT_DATA.map((day) => (
-            <button
-              key={day.id}
-              type="button"
-              onClick={() => setActiveIndex(SEVEN_DAY_SCENT_DATA.indexOf(day))}
-              className={`rounded-full px-4 py-2 text-sm font-black transition-colors ${
-                activeIndex === SEVEN_DAY_SCENT_DATA.indexOf(day) ? "bg-yellow-400 text-amber-950 border-yellow-400 shadow-yellow-400/30 scale-[1.02]" : "bg-transparent text-ink border-parchment"
-              } ${activeIndex === SEVEN_DAY_SCENT_DATA.indexOf(day) ? "font-bold" : ""}`}
-              aria-label={day.day}
-            >
-              {day.day}
-            </button>
-          ))}
-        </div>
-
-        {/* Two-column Stage: Active Day (left) + Details (right) */}
+        {/* Single Active Day Two-Column Card */}
         <div className="mx-auto max-w-6xl flex flex-col md:flex-row gap-12 items-center">
           {/* LEFT: Active Day Image with Palette Aura */}
           <motion.div
@@ -155,7 +138,7 @@ export function SevenDayScent() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -20 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="relative w-full md:w-1/2 space-y-6 text-center"
+            className="relative w-full md:w-1/2 space-y-6 text-left"
           >
             <div>
               <p className="text-lg font-black text-ink uppercase tracking-[0.2em]">{currentDay.day}</p>
@@ -163,7 +146,7 @@ export function SevenDayScent() {
             </div>
 
             {/* Sound Label/Icon */}
-            <div className="flex items-center justify-center gap-2">
+            <div className="flex items-center justify-start gap-2">
               <PawIcon size={16} className="text-amber-500" />
               <span className="text-amber-400 text-sm">{currentDay.sound}</span>
             </div>
@@ -171,8 +154,8 @@ export function SevenDayScent() {
             {/* Puzzle Rule */}
             <p className="mt-3 text-sm text-amber-600 font-black uppercase tracking-[0.1em]">{currentDay.puzzleRule}</p>
 
-            {/* Difficulty Meter Visual */}
-            <div className="mt-3 flex items-center justify-center gap-2">
+            {/* Difficulty Meter Visual - show only as many paws as difficulty indicates */}
+            <div className="mt-3 flex items-center gap-1">
               {[1, 2, 3].map((paw) => (
                 <PawIcon
                   key={paw}
@@ -186,25 +169,42 @@ export function SevenDayScent() {
           </motion.div>
         </div>
 
-        {/* Navigation Buttons */}
-        <div className="mt-8 flex justify-between">
+        {/* Navigation + Pills Below Active Card */}
+        <div className="mt-8 flex flex-col md:flex-row justify-between gap-4">
           <button
             type="button"
             onClick={() => setActiveIndex(prevIndex)}
-            className="rounded-full bg-white/20 px-4 py-2 text-sm font-black text-ink transition-colors hover:bg-white/30"
+            className="flex-1 rounded-full bg-white/20 px-4 py-2 text-sm font-black text-ink transition-colors hover:bg-white/30"
             aria-label="Previous day"
             disabled={activeIndex === 0}
           >
             Previous
           </button>
-          <button
+<button
             type="button"
             onClick={() => setActiveIndex(nextIndex)}
-            className="rounded-full bg-white/20 px-4 py-2 text-sm font-black text-ink transition-colors hover:bg-white/30"
+            className="flex-1 rounded-full bg-white/20 px-4 py-2 text-sm font-black text-ink transition-colors hover:bg-white/30"
             aria-label="Next day"
           >
             Next
           </button>
+          <div className="flex gap-2">
+            {SEVEN_DAY_SCENT_DATA.map((day) => (
+              <button
+                key={day.id}
+                type="button"
+                onClick={() => setActiveIndex(SEVEN_DAY_SCENT_DATA.indexOf(day))}
+                className={`rounded-full px-3 py-1.5 text-xs font-black transition-colors ${
+                  activeIndex === SEVEN_DAY_SCENT_DATA.indexOf(day)
+                    ? "bg-yellow-400 text-amber-950 border-yellow-400 shadow-yellow-400/30"
+                    : "bg-transparent text-ink border-parchment"
+                }`}
+                aria-label={day.day}
+              >
+                {day.day}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
     </section>
