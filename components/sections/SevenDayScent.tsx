@@ -13,7 +13,6 @@ const SEVEN_DAY_SCENT_DATA = [
     sound: "Gentle rustle",
     puzzleRule: "One chamber at a time",
     difficulty: "Easy (1 paw)",
-    auraColor: "from-amber-500 via-yellow-500 to-amber-200",
   },
   {
     id: "tue",
@@ -23,7 +22,6 @@ const SEVEN_DAY_SCENT_DATA = [
     sound: "Light breeze",
     puzzleRule: "Slide-and-sniff two chambers",
     difficulty: "Easy (1 paw)",
-    auraColor: "from-green-500 via-emerald-500 to-green-200",
   },
   {
     id: "wed",
@@ -33,7 +31,6 @@ const SEVEN_DAY_SCENT_DATA = [
     sound: "Chirping birds",
     puzzleRule: "Rotate wheel to unlock",
     difficulty: "Medium (2 paws)",
-    auraColor: "from-orange-500 via-amber-500 to-orange-200",
   },
   {
     id: "thu",
@@ -43,7 +40,6 @@ const SEVEN_DAY_SCENT_DATA = [
     sound: "Water trickle",
     puzzleRule: "Sequential timed release",
     difficulty: "Medium (2 paws)",
-    auraColor: "from-red-500 via-orange-500 to-red-200",
   },
   {
     id: "fri",
@@ -53,7 +49,6 @@ const SEVEN_DAY_SCENT_DATA = [
     sound: "Crinkle wrap",
     puzzleRule: "Paw-toggle all six zones",
     difficulty: "Hard (3 paws)",
-    auraColor: "from-purple-500 via-pink-500 to-purple-200",
   },
   {
     id: "sat",
@@ -63,7 +58,6 @@ const SEVEN_DAY_SCENT_DATA = [
     sound: "Sizzle",
     puzzleRule: "Memory match zones",
     difficulty: "Hard (3 paws)",
-    auraColor: "from-red-500 via-orange-500 to-amber-200",
   },
   {
     id: "sun",
@@ -73,7 +67,6 @@ const SEVEN_DAY_SCENT_DATA = [
     sound: "Soft chime",
     puzzleRule: "Free-for-all kibble scatter",
     difficulty: "Easy (1 paw)",
-    auraColor: "from-blue-500 via-light-blue-500 to-sky-200",
   },
 ];
 
@@ -94,82 +87,67 @@ export function SevenDayScent() {
           <p className="mt-3 text-lg leading-relaxed text-ink-2">Rotate through seven natural scents, one per day, to keep your dog's nose engaged and mind sharp.</p>
         </div>
 
-        {/* Single Active Day Two-Column Card */}
+        {/* Single Active Day Two-Column Spotlight */}
         <div className="mx-auto max-w-6xl flex flex-col md:flex-row gap-12 items-center">
-          {/* LEFT: Active Day Image with Palette Aura */}
+          {/* LEFT: Week Dial Image Frame with Day-Specific Fallback */}
           <motion.div
             key="active-day"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 20 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="relative flex-shrink-0 w-full md:w-1/2 rounded-xl overflow-hidden shadow-2xl"
-            style={{
-              transform: `scale(${activeIndex === 0 ? 1 : 0.95})`,
-            }}
+            className="relative flex-shrink-0 w-full md:w-1/2"
           >
             <img
-              src={currentDay.img}
-              alt={currentDay.scent}
-              className="w-full h-[400px] object-cover"
-              style={{
-                borderRadius: activeIndex === 0 ? "12px 12px 0 0" : "0",
-              }}
+              src="/media/scent-week-dial.png"
+              alt={`7-Day Scent Rotation - ${currentDay.day}`}
+              className="w-full aspect-[4/3] rounded-2xl overflow-hidden object-cover"
             />
-            {/* Soft pulsing palette aura - only on active day */}
-            <div
-              className={`absolute inset-0 rounded-xl opacity-30 transition-opacity duration-200 ${
-                activeIndex === 0 ? "from-amber-500 via-yellow-500 to-amber-200" : ""
-              }`}
-            />
-            {/* Difficulty meter on image */}
-            <div className="absolute bottom-0 left-0 right-0 p-4">
-              <div className="flex items-center gap-2 text-xs text-amber-400">
-                <PawIcon size={10} className="text-amber-500" />
-                <span>{currentDay.difficulty}</span>
-              </div>
-            </div>
+            {/* Day-specific scent image overlay with fade when not default */}
+            {currentDay.img !== "/media/scent-week-dial.png" && (
+              <img
+                src={currentDay.img}
+                alt={currentDay.scent}
+                className="absolute inset-0 rounded-2xl overflow-hidden object-cover opacity-20 transition-opacity duration-500"
+                style={{ pointerEvents: "none" }}
+              />
+            )}
           </motion.div>
 
-          {/* RIGHT: Day Details Pane */}
+          {/* RIGHT: Active Day Details Pane */}
           <motion.div
             key="details-pane"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -20 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="relative w-full md:w-1/2 space-y-6 text-left"
+            className="relative w-full md:w-1/2 space-y-4"
           >
             <div>
               <p className="text-lg font-black text-ink uppercase tracking-[0.2em]">{currentDay.day}</p>
-              <p className="mt-2 text-3xl font-bold text-blue-700">{currentDay.scent}</p>
+              <p className="mt-2 text-2xl font-bold text-blue-700">{currentDay.scent}</p>
             </div>
 
-            {/* Sound Label/Icon */}
-            <div className="flex items-center justify-start gap-2">
-              <PawIcon size={16} className="text-amber-500" />
-              <span className="text-amber-400 text-sm">{currentDay.sound}</span>
-            </div>
+            {/* Sound Cue */}
+            <p className="mt-3 text-sm text-amber-600">{currentDay.sound}</p>
 
-            {/* Puzzle Rule */}
-            <p className="mt-3 text-sm text-amber-600 font-black uppercase tracking-[0.1em]">{currentDay.puzzleRule}</p>
+            {/* Puzzle Rule - normal wrapping text */}
+            <p className="mt-3 text-sm text-amber-600 font-black uppercase tracking-[0.1em] leading-relaxed">{currentDay.puzzleRule}</p>
 
-            {/* Difficulty Meter Visual - show only as many paws as difficulty indicates */}
-            <div className="mt-3 flex items-center gap-1">
+            {/* Difficulty Rating 1-3 paws with normal text flow */}
+            <div className="mt-3 flex gap-1">
               {[1, 2, 3].map((paw) => (
                 <PawIcon
                   key={paw}
-                  size={20}
-                  className={`text-amber-500 ${
-                    paw <= 3 ? "filled" : "outline"
-                  } transition-colors`}
+                  size={18}
+                  className="text-amber-500 fill-current transition-colors"
                 />
               ))}
             </div>
           </motion.div>
         </div>
 
-        {/* Navigation + Pills Below Active Card */}
+        {/* Navigation + 7 Day Selector Below Active Card */}
         <div className="mt-8 flex flex-col md:flex-row justify-between gap-4">
           <button
             type="button"

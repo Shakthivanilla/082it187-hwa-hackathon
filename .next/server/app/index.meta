@@ -1,7 +1,7 @@
 {
   "status": 200,
   "headers": {
-    "link": "</_next/static/media/07c7676b89ed2778-s.p.2bn3s6zvc0dyp.woff2>; rel=preload; as=\"font\"; crossorigin=\"\"; type=\"font/woff2\", </media/hero-console.png>; rel=preload; as=\"image\", </media/exploded-view.png>; rel=preload; as=\"image\", </media/scent-mon-grass.png>; rel=preload; as=\"image\", </media/scent-tue-pine.png>; rel=preload; as=\"image\", </media/scent-wed-herb.png>; rel=preload; as=\"image\", </media/scent-thu-apple.png>; rel=preload; as=\"image\", </media/scent-fri-peanut.png>; rel=preload; as=\"image\", </media/scent-sat-chicken.png>; rel=preload; as=\"image\", </media/scent-sun-blueberry.png>; rel=preload; as=\"image\", </media/foragegrid-cleaning.png>; rel=preload; as=\"image\"",
+    "link": "</_next/static/media/07c7676b89ed2778-s.p.2bn3s6zvc0dyp.woff2>; rel=preload; as=\"font\"; crossorigin=\"\"; type=\"font/woff2\", </media/hero-console.png>; rel=preload; as=\"image\", </media/exploded-view.png>; rel=preload; as=\"image\", </media/scent-week-dial.png>; rel=preload; as=\"image\", </media/scent-mon-grass.png>; rel=preload; as=\"image\", </media/scent-tue-pine.png>; rel=preload; as=\"image\", </media/scent-wed-herb.png>; rel=preload; as=\"image\", </media/scent-thu-apple.png>; rel=preload; as=\"image\", </media/scent-fri-peanut.png>; rel=preload; as=\"image\", </media/scent-sat-chicken.png>; rel=preload; as=\"image\", </media/scent-sun-blueberry.png>; rel=preload; as=\"image\"",
     "x-nextjs-stale-time": "300",
     "x-nextjs-prerender": "1",
     "x-next-cache-tags": "_N_T_/layout,_N_T_/page,_N_T_/,_N_T_/index"
