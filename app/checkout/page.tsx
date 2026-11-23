@@ -90,10 +90,8 @@ export default function CheckoutPage() {
       if (step === 1 && !validateAddress()) return;
     }
 
-    setStep(3); // Move to processing step
-
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || "/api"}/order`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || "/api"}/orders`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -163,9 +161,9 @@ export default function CheckoutPage() {
         <div className="mt-10">
           {orderSuccess ? (
             <div className="rounded-3xl border border-parchment bg-white p-7 shadow-sm text-center">
-              <h2 className="text-2xl font-black text-green-600 mt-4">Order Placed!</h2>
+              <h2 className="text-2xl font-black text-green-600 mt-4">Order is placed</h2>
               <p className="text-lg text-green-600 mt-2">
-                <strong>Order ID: {orderId}</strong> has been successfully placed.
+                <strong>Order ID: {orderId}</strong> {orderId ? "Order is placed" : ""}
               </p>
               <p className="mt-4 text-sm text-green-600">
                 Your order will be delivered to the address provided. We will send
