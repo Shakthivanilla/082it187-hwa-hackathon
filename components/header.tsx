@@ -2,12 +2,12 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { BoneIcon, PawIcon, MenuIcon, XIcon } from "@/components/icons";
+import { PawIcon, MenuIcon, XIcon } from "@/components/icons";
 import { useCartCount } from "@/lib/store";
 import { useRouter } from "next/navigation";
-import { CartDrawer } from "@/components/CartDrawer";
 
 const NAV_ITEMS = [
+  { label: "Home", href: "#home" },
   { label: "How it works", href: "#how-it-works" },
   { label: "A Day While You&apos;re Away", href: "#day-away" },
   { label: "Safety", href: "#safety" },
@@ -44,10 +44,10 @@ export function Header() {
       className={`fixed inset-x-0 top-0 z-[350] transition-all duration-500 ${
         scrolled
           ? "border-b border-black/5 bg-white/70 backdrop-blur-xl"
-          : "bg-transparent"
-      }`}
+          : "bg-transparent"}
+      `}
     >
-      <div className="mx-auto flex h-16 max-w-7xl items-center gap-4 px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex h-16 max-w-7xl items-start gap-4 px-4 sm:px-6 lg:px-8 flex-col lg:flex-row">
         <a href="#home" className="flex shrink-0 items-center gap-2.5">
           <PawIcon size={30} className="text-yellow-500" />
           <span className="flex flex-col leading-none">
@@ -60,10 +60,7 @@ export function Header() {
           </span>
         </a>
 
-        <nav
-          className="mx-auto hidden flex flex-col items-start gap-4 lg:flex"
-          aria-label="Primary"
-        >
+        <nav className="mt-4 flex-1 flex justify-center lg:mt-0 lg:flex items-center gap-8">
           {NAV_ITEMS.map((item) => (
             <a
               key={item.href}
@@ -75,31 +72,23 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="ml-auto flex items-center gap-3">
+        <div className="ml-auto flex items-center gap-2">
           <button
             type="button"
             onClick={() => setCartOpen(true)}
             aria-label="Open cart"
             className="relative grid h-12 w-12 place-items-center rounded-full bg-white/80 text-ink shadow-sm"
           >
-            <BoneIcon size={18} />
+            <PawIcon size={18} />
             {count > 0 ? (
               <span className="animate-cart absolute -top-1 -right-1 grid min-w-5 place-items-center rounded-full bg-brown-800 px-1.5 text-[10px] font-bold text-cream">{count}</span>
             ) : null}
-          </button>
-          <button
-            type="button"
-            onClick={() => setOpen(true)}
-            aria-label="Open menu"
-            className="grid h-10 w-10 place-items-center rounded-full bg-white/80 text-ink shadow-sm lg:hidden"
-          >
-            <MenuIcon size={18} />
           </button>
           <a
             href="#configure"
             className="group relative grid h-12 shrink-0 place-items-center gap-2 rounded-full bg-yellow-400 px-5 text-[13px] font-black text-amber-950 shadow-lg shadow-yellow-400/30 transition-transform hover:scale-[1.04]"
           >
-            <span>Configure &amp; Buy</span>
+            <span>Configure & Buy</span>
             <span className="animate-cart absolute -top-1.5 -right-1 grid min-w-5 place-items-center rounded-full bg-brown-800 px-1.5 text-[10px] font-bold text-cream">
               {count}
             </span>
@@ -150,14 +139,6 @@ export function Header() {
           </>
         ) : null}
       </AnimatePresence>
-      <CartDrawer
-        open={cartOpen}
-        onClose={() => setCartOpen(false)}
-        onCheckout={() => {
-          setCartOpen(false);
-          router.push("/checkout");
-        }}
-      />
     </motion.header>
   );
 }

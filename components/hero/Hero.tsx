@@ -1,78 +1,93 @@
 "use client";
 
-import { useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { gsap } from "@/lib/gsap";
 import { HeroCanvas } from "./HeroCanvas";
 import { HeroVideoModal } from "./HeroVideoModal";
 import { Magnetic } from "@/components/magnetic";
-import {
-  PawIcon,
-  PlayIcon,
-  ChevronRightIcon,
-  TruckIcon,
-  ShieldCheckIcon,
-  RefreshCcwIcon,
-  ReceiptIcon,
-} from "@/components/icons";
+import { PawIcon, PlayIcon, ChevronRightIcon } from "@/components/icons";
 
-const TRUST_BADGES = [
-  { icon: TruckIcon, label: "Free shipping across India" },
-  { icon: ShieldCheckIcon, label: "30-day happiness guarantee" },
-  { icon: RefreshCcwIcon, label: "1-year warranty" },
-  { icon: ReceiptIcon, label: "18% GST incl. | prices in INR" },
-];
+const PAW_ANIMATION_DELAY = 1500;
+
+// Check if user has visited before
+const HAS_VISITED = typeof window !== "undefined" && localStorage.getItem("foragegrid_visited") === "1";
 
 export function Hero() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const blobRef = useRef<HTMLDivElement>(null);
-  const [filmOpen, setFilmOpen] = useState(false);
-
-  useLayoutEffect(() => {
-    const section = sectionRef.current;
-    const blob = blobRef.current;
-    if (!section) return;
-
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: section,
-          start: "top top",
-          end: "bottom top",
-          scrub: true,
-          invalidateOnRefresh: true,
-        },
-      });
-      tl.fromTo(
-        ".hero-copy",
-        { y: 110, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.12, ease: "none" },
-      );
-      if (blob) {
-        tl.fromTo(
-          ".hero-blob",
-          { yPercent: -7 },
-          { yPercent: 0, duration: 0.25, ease: "none" },
-        );
-      }
-    }, section);
-
-    return () => ctx.revert();
+  // Mark as visited on first render (or after delay)
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      localStorage.setItem("foragegrid_visited", "1");
+    }, PAW_ANIMATION_DELAY);
+    return () => clearTimeout(timer);
   }, []);
 
-  const scrollToProblem = () => {
-    document.getElementById("problem")?.scrollIntoView({ behavior: "smooth" });
-  };
+  const [videoPaused, setVideoPaused] = useState(!HAS_VISITED);
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const handlePause = () => setVideoPaused(!videoPaused);
+  const handleSkip = () => setModalOpen(false);
 
   return (
     <section
       id="home"
-      ref={sectionRef}
       className="relative h-[100svh] min-h-[620px] overflow-hidden bg-night text-cream"
     >
-      <div ref={blobRef} className="hero-blob absolute inset-0">
-        <HeroCanvas />
+      {/* Paw loading animation only on first visit */}
+      {HAS_VISITED ? null : (
+        <div
+          className="fixed inset-0 flex items-center justify-center z-[500]"
+          style={{ backgroundColor: "#0e1014" }}
+        >
+          <div className="text-center">
+            <PawIcon size={80} className="mb-4 text-yellow-400 animate-paw-bounce" />
+            <p className="text-2xl font-black text-cream">ForageGrid</p>
+            <p className="text-sm text-cream/60">Loading your personalized experience...</p>
+          </div>
+        </div>
+      )}
+
+      {/* Video background */}
+      <div className="relative h-full w-full">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="object-cover h-full w-full"
+          src="/media/foragegrid-demo.mp4"
+        />
+        <div
+          className="absolute inset-0 flex items-center justify-center pointer-events-none"
+          style={{ backgroundColor: "rgba(14, 16, 20, 0.5)" }}
+        >
+          <img
+            src="/media/foragegrid-hero.png"
+            alt="ForageGrid hero image - dog at home"
+            className="max-w-80 mx-auto rounded-xl border border-white/20 bg-white/5"
+          />
+        </div>
+
+        {/* Play/pause toggle */}
+        <button
+          onClick={handlePause}
+          className="absolute top-6 right-6 rounded-full bg-white/90 backdrop-blur px-5 py-2 text-sm font-black text-amber-950 transition-colors hover:scale-[1.05]"
+          aria-label={videoPaused ? "Play video" : "Pause video"}
+        >
+          <PlayIcon size={20} className="mr-2" />
+          {videoPaused ? "Play" : "Pause"}
+        </button>
+
+        {/* Skip button */}
+        <button
+          onClick={handleSkip}
+          className="absolute bottom-6 left-1/2 -translate-x-1/2 rounded-full bg-black/60 px-6 py-3 text-sm font-black text-cream transition-colors"
+          aria-label="Skip video intro"
+        >
+          Skip
+        </button>
       </div>
 
+      {/* Hero content overlay */}
       <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-center px-5 pt-28 pb-20 sm:px-8">
         <div className="hero-copy max-w-3xl">
           <p className="hero-kicker inline-flex items-center rounded-full border border-yellow-400/40 bg-yellow-400/10 px-4 py-2 text-[11px] font-black uppercase tracking-[0.24em] text-yellow-400">
@@ -80,7 +95,7 @@ export function Hero() {
           </p>
           <h1 className="mt-6 text-5xl font-black leading-[1.04] tracking-tight text-cream sm:text-6xl lg:text-7xl">
             The 6-Zone Forage Console that Turns Lonely Hours into Sniffing,
-            Solving &amp; Calm
+            Solving & Calm
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-cream/70 md:text-xl">
             A 6-zone smart floor console with a 6-chamber scent wheel and daily
@@ -101,37 +116,13 @@ export function Hero() {
                 />
               </a>
             </Magnetic>
-            <Magnetic strength={0.4} className="inline-block">
-              <button
-                type="button"
-                onClick={() => setFilmOpen(true)}
-                className="inline-flex items-center gap-2.5 rounded-full border border-cream/30 bg-cream/5 px-7 py-4 text-[15px] font-bold text-cream backdrop-blur transition-colors hover:border-cream/60"
-              >
-                <PlayIcon size={16} className="text-yellow-400" />
-                Watch the Film
-              </button>
-            </Magnetic>
           </div>
-          <ul className="mt-10 flex flex-wrap gap-x-6 gap-y-3">
-            {TRUST_BADGES.map((badge) => {
-              const Icon = badge.icon;
-              return (
-                <li
-                  key={badge.label}
-                  className="flex items-center gap-2.5 text-[13px] font-semibold text-cream/70"
-                >
-                  <Icon size={18} className="text-yellow-400" />
-                  {badge.label}
-                </li>
-              );
-            })}
-          </ul>
         </div>
       </div>
 
       <button
         type="button"
-        onClick={scrollToProblem}
+        onClick={() => document.getElementById("problem")?.scrollIntoView({ behavior: "smooth" })}
         aria-label="Scroll to content"
         className="absolute bottom-6 left-1/2 z-20 -translate-x-1/2"
       >
@@ -140,8 +131,6 @@ export function Hero() {
           Scroll
         </span>
       </button>
-
-      <HeroVideoModal open={filmOpen} onClose={() => setFilmOpen(false)} />
     </section>
   );
 }
