@@ -1,5 +1,5 @@
 #1:"$Sreact.fragment"
-2:"/_next/static/chunks/22umkafzl--rp.js"
+2:"/_next/static/chunks/0ucmokztq1e83.js"
 3:"/_next/static/chunks/3x9a8p91m646-.js"
 4:"/_next/static/chunks/1qpmmotr8l-vf.js"
 5:I[92352,["$2","$3","$4"],"LenisProvider"]
@@ -11,54 +11,51 @@ a:"/_next/static/chunks/3crj47s60t_bx.js"
 b:I[8821,["$2","$3","$4","$a"],"default"]
 c:I[37457,["$2","$3","$4"],"default"]
 d:I[99172,["$2","$3","$4"],"Footer"]
-10:"/_next/static/chunks/0y4vmvpo464mo.js"
+10:"/_next/static/chunks/07wu4a7uup409.js"
 11:"SectionErrorBoundary"
 12:I[36305,["$2","$3","$4","$10"],"$11"]
 13:I[88838,["$2","$3","$4","$10"],"Hero"]
 14:I[32359,["$2","$3","$4","$10"],"Problem"]
 15:I[87345,["$2","$3","$4","$10"],"HowItWorks"]
-16:I[46576,["$2","$3","$4","$10"],"DayAway"]
-17:I[31576,["$2","$3","$4","$10"],"SevenDayScent"]
-18:I[76809,["$2","$3","$4","$10"],"ScentWheel"]
-19:I[65326,["$2","$3","$4","$10"],"BentoGrid"]
-1a:I[83197,["$2","$3","$4","$10"],"Comparison"]
-1b:I[51925,["$2","$3","$4","$10"],"Safety"]
-1c:"BuildYourForageGrid"
-1d:I[52172,["$2","$3","$4","$10"],"$1c"]
-1e:"PortionEstimator"
-1f:I[46625,["$2","$3","$4","$10"],"$1e"]
-20:I[77995,["$2","$3","$4","$10"],"ReviewMarquee"]
-21:I[36057,["$2","$3","$4","$10"],"Faq"]
-26:"ViewportBoundary"
-27:I[97367,["$2","$3","$4"],"$26"]
-29:"MetadataBoundary"
-2a:I[97367,["$2","$3","$4"],"$29"]
-2b:"$Sreact.suspense"
-2e:"/_next/static/chunks/0ven5rngtv9ue.js"
-2f:I[53348,["$2","$3","$4","$2e"],"default"]
-:HL["/_next/static/chunks/43qefre1knk75.css","style"]
+16:I[31576,["$2","$3","$4","$10"],"SevenDayScent"]
+17:I[76809,["$2","$3","$4","$10"],"ScentWheel"]
+18:I[65326,["$2","$3","$4","$10"],"BentoGrid"]
+19:I[83197,["$2","$3","$4","$10"],"Comparison"]
+1a:I[51925,["$2","$3","$4","$10"],"Safety"]
+1b:"BuildYourForageGrid"
+1c:I[52172,["$2","$3","$4","$10"],"$1b"]
+1d:"PortionEstimator"
+1e:I[46625,["$2","$3","$4","$10"],"$1d"]
+1f:I[77995,["$2","$3","$4","$10"],"ReviewMarquee"]
+20:I[36057,["$2","$3","$4","$10"],"Faq"]
+21:I[55706,["$2","$3","$4","$10"],"Cta"]
+24:"ViewportBoundary"
+25:I[97367,["$2","$3","$4"],"$24"]
+27:"MetadataBoundary"
+28:I[97367,["$2","$3","$4"],"$27"]
+29:"$Sreact.suspense"
+2c:"/_next/static/chunks/0ven5rngtv9ue.js"
+2d:I[53348,["$2","$3","$4","$2c"],"default"]
+:HL["/_next/static/chunks/1xze-9s1-yv_q.css","style"]
 :HL["/_next/static/media/07c7676b89ed2778-s.p.2bn3s6zvc0dyp.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 e:X
-25:X
-f:[["children",{"s":"__PAGE__","h":514,"d":{"r":["$","$1","c",{"children":[["$","main",null,{"className":"flex flex-1 flex-col","children":[["$","$L12",null,{"fallback":["$","div",null,{"className":"py-24 text-center text-ink/60","children":["$","p",null,{"children":"Error loading this section."}]}],"children":["$","$L13",null,{}]}],["$","$L12",null,{"fallback":["$","div",null,{"className":"py-24 text-center text-ink/60","children":["$","p",null,{"children":"Error loading this section."}]}],"children":["$","$L14",null,{}]}],["$","$L12",null,{"fallback":["$","div",null,{"className":"py-24 text-center text-ink/60","children":["$","p",null,{"children":"Error loading this section."}]}],"children":["$","$L15",null,{}]}],["$","$L12",null,{"fallback":["$","div",null,{"className":"py-24 text-center text-ink/60","children":["$","p",null,{"children":"Error loading this section."}]}],"children":["$","$L16",null,{}]}],["$","$L12",null,{"fallback":["$","div",null,{"className":"py-24 text-center text-ink/60","children":["$","p",null,{"children":"Error loading this section."}]}],"children":["$","$L17",null,{}]}],["$","$L12",null,{"fallback":["$","div",null,{"className":"py-24 text-center text-ink/60","children":["$","p",null,{"children":"Error loading this section."}]}],"children":["$","$L18",null,{}]}],["$","$L12",null,{"fallback":["$","div",null,{"className":"py-24 text-center text-ink/60","children":["$","p",null,{"children":"Error loading this section."}]}],"children":["$","$L19",null,{}]}],["$","$L12",null,{"fallback":["$","div",null,{"className":"py-24 text-center text-ink/60","children":["$","p",null,{"children":"Error loading this section."}]}],"children":["$","$L1a",null,{}]}],["$","$L12",null,{"fallback":["$","div",null,{"className":"py-24 text-center text-ink/60","children":["$","p",null,{"children":"Error loading this section."}]}],"children":["$","$L1b",null,{}]}],["$","$L12",null,{"fallback":["$","div",null,{"className":"py-24 text-center text-ink/60","children":["$","p",null,{"children":"Error loading this section."}]}],"children":["$","$L1d",null,{}]}],["$","$L12",null,{"fallback":["$","div",null,{"className":"py-24 text-center text-ink/60","children":["$","p",null,{"children":"Error loading this section."}]}],"children":["$","$L1f",null,{}]}],["$","$L12",null,{"fallback":["$","div",null,{"className":"py-24 text-center text-ink/60","children":["$","p",null,{"children":"Error loading this section."}]}],"children":["$","$L20",null,{}]}],["$","$L12",null,{"fallback":["$","div",null,{"className":"py-24 text-center text-ink/60","children":["$","p",null,{"children":"Error loading this section."}]}],"children":["$","$L21",null,{}]}],["$","$L12",null,{"fallback":["$","div",null,{"className":"py-24 text-center text-ink/60","children":["$","p",null,{"children":"Error loading this section."}]}],"children":"$L22"}]]}],["$L23"],"$L24"]}],"p":true,"v":"$25"}}]]
-2d:X
-30:X
-31:X
-0:{"P":null,"c":["",""],"q":"","i":false,"t":{"t":{"s":"","h":530,"d":{"r":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/43qefre1knk75.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/22umkafzl--rp.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/3x9a8p91m646-.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/1qpmmotr8l-vf.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"LINzvG_variable h-full antialiased","children":["$","body",null,{"className":"min-h-full flex flex-col bg-white font-sans text-ink","children":["$","$L5",null,{"children":[["$","$L6",null,{}],["$","$L7",null,{}],["$","$L8",null,{}],["$","$L9",null,{"parallelRouterKey":"children","error":"$b","errorStyles":[],"errorScripts":[["$","script","script-0",{"src":"/_next/static/chunks/3crj47s60t_bx.js","async":true,"nonce":"$undefined"}]],"template":["$","$Lc",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}],["$","$Ld",null,{}]]}]}]}]]}],"p":true,"v":"$e"},"c":"$Qf"},"h":{"r":["$","$1","h",{"children":[null,["$","$L27",null,{"children":"$L28"}],["$","$L2a",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$2b",null,{"name":"Next.Metadata","children":"$L2c"}]}],null]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"p":true,"v":"$2d"}},"m":"$undefined","G":["$2f",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/43qefre1knk75.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"S":true,"r":"$30","s":"$31","a":"$@32","l":"$undefined","p":"$undefined","d":"$undefined","b":"QRzQ4HKWHrFQJZnyNwwR5","u":"$@33"}
-34:I[55706,["$2","$3","$4","$10"],"Cta"]
-35:I[97367,["$2","$3","$4"],"OutletBoundary"]
-22:["$","$L34",null,{}]
-23:["$","script","script-0",{"src":"/_next/static/chunks/0y4vmvpo464mo.js","async":true,"nonce":"$undefined"}]
-24:["$","$L35",null,{"children":["$","$2b",null,{"name":"Next.MetadataOutlet","children":"$@36"}]}]
-31:300
-28:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
-37:I[27201,["$2","$3","$4"],"IconMark"]
-2c:[["$","title","0",{"children":"ForageGrid | Smart 6-Zone Kibble Console for Dogs"}],["$","meta","1",{"name":"description","content":"ForageGrid is the smart 6-zone kibble console that turns lonely hours into sniffing, solving and calm."}],["$","meta","2",{"property":"og:title","content":"ForageGrid | Smart 6-Zone Kibble Console for Dogs"}],["$","meta","3",{"property":"og:description","content":"ForageGrid is the smart 6-zone kibble console that turns lonely hours into sniffing, solving and calm."}],["$","meta","4",{"property":"og:image","content":"https://082it187-hwa-hackathon-eight.vercel.app/media/foragegrid-hero.png"}],["$","meta","5",{"property":"og:type","content":"website"}],["$","meta","6",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","7",{"name":"twitter:title","content":"ForageGrid | Smart 6-Zone Kibble Console for Dogs"}],["$","meta","8",{"name":"twitter:description","content":"ForageGrid is the smart 6-zone kibble console that turns lonely hours into sniffing, solving and calm."}],["$","meta","9",{"name":"twitter:image","content":"https://082it187-hwa-hackathon-eight.vercel.app/media/foragegrid-hero.png"}],["$","link","10",{"rel":"icon","href":"/icon.svg"}],["$","$L37","11",{}]]
-36:null
-31:C
-2d:C
-30:C
-25:C
+23:X
+f:[["children",{"s":"__PAGE__","h":514,"d":{"r":["$","$1","c",{"children":[["$","main",null,{"className":"flex flex-1 flex-col","children":[["$","$L12",null,{"fallback":["$","div",null,{"className":"py-24 text-center text-ink/60","children":["$","p",null,{"children":"Error loading this section."}]}],"children":["$","$L13",null,{}]}],["$","$L12",null,{"fallback":["$","div",null,{"className":"py-24 text-center text-ink/60","children":["$","p",null,{"children":"Error loading this section."}]}],"children":["$","$L14",null,{}]}],["$","$L12",null,{"fallback":["$","div",null,{"className":"py-24 text-center text-ink/60","children":["$","p",null,{"children":"Error loading this section."}]}],"children":["$","$L15",null,{}]}],["$","$L12",null,{"fallback":["$","div",null,{"className":"py-24 text-center text-ink/60","children":["$","p",null,{"children":"Error loading this section."}]}],"children":["$","$L16",null,{}]}],["$","$L12",null,{"fallback":["$","div",null,{"className":"py-24 text-center text-ink/60","children":["$","p",null,{"children":"Error loading this section."}]}],"children":["$","$L17",null,{}]}],["$","$L12",null,{"fallback":["$","div",null,{"className":"py-24 text-center text-ink/60","children":["$","p",null,{"children":"Error loading this section."}]}],"children":["$","$L18",null,{}]}],["$","$L12",null,{"fallback":["$","div",null,{"className":"py-24 text-center text-ink/60","children":["$","p",null,{"children":"Error loading this section."}]}],"children":["$","$L19",null,{}]}],["$","$L12",null,{"fallback":["$","div",null,{"className":"py-24 text-center text-ink/60","children":["$","p",null,{"children":"Error loading this section."}]}],"children":["$","$L1a",null,{}]}],["$","$L12",null,{"fallback":["$","div",null,{"className":"py-24 text-center text-ink/60","children":["$","p",null,{"children":"Error loading this section."}]}],"children":["$","$L1c",null,{}]}],["$","$L12",null,{"fallback":["$","div",null,{"className":"py-24 text-center text-ink/60","children":["$","p",null,{"children":"Error loading this section."}]}],"children":["$","$L1e",null,{}]}],["$","$L12",null,{"fallback":["$","div",null,{"className":"py-24 text-center text-ink/60","children":["$","p",null,{"children":"Error loading this section."}]}],"children":["$","$L1f",null,{}]}],["$","$L12",null,{"fallback":["$","div",null,{"className":"py-24 text-center text-ink/60","children":["$","p",null,{"children":"Error loading this section."}]}],"children":["$","$L20",null,{}]}],["$","$L12",null,{"fallback":["$","div",null,{"className":"py-24 text-center text-ink/60","children":["$","p",null,{"children":"Error loading this section."}]}],"children":["$","$L21",null,{}]}]]}],[["$","script","script-0",{"src":"/_next/static/chunks/07wu4a7uup409.js","async":true,"nonce":"$undefined"}]],"$L22"]}],"p":true,"v":"$23"}}]]
+2b:X
+2e:X
+2f:X
+0:{"P":null,"c":["",""],"q":"","i":false,"t":{"t":{"s":"","h":530,"d":{"r":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/1xze-9s1-yv_q.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0ucmokztq1e83.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/3x9a8p91m646-.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/1qpmmotr8l-vf.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"LINzvG_variable h-full antialiased","children":["$","body",null,{"className":"min-h-full flex flex-col bg-white font-sans text-ink","children":["$","$L5",null,{"children":[["$","$L6",null,{}],["$","$L7",null,{}],["$","$L8",null,{}],["$","$L9",null,{"parallelRouterKey":"children","error":"$b","errorStyles":[],"errorScripts":[["$","script","script-0",{"src":"/_next/static/chunks/3crj47s60t_bx.js","async":true,"nonce":"$undefined"}]],"template":["$","$Lc",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}],["$","$Ld",null,{}]]}]}]}]]}],"p":true,"v":"$e"},"c":"$Qf"},"h":{"r":["$","$1","h",{"children":[null,["$","$L25",null,{"children":"$L26"}],["$","$L28",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$29",null,{"name":"Next.Metadata","children":"$L2a"}]}],null]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"p":true,"v":"$2b"}},"m":"$undefined","G":["$2d",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/1xze-9s1-yv_q.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]]],"S":true,"r":"$2e","s":"$2f","a":"$@30","l":"$undefined","p":"$undefined","d":"$undefined","b":"towo4wtUFiTzOvWU42tUy","u":"$@31"}
+32:I[97367,["$2","$3","$4"],"OutletBoundary"]
+22:["$","$L32",null,{"children":["$","$29",null,{"name":"Next.MetadataOutlet","children":"$@33"}]}]
+2f:300
+26:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+34:I[27201,["$2","$3","$4"],"IconMark"]
+2a:[["$","title","0",{"children":"ForageGrid | Smart 6-Zone Kibble Console for Dogs"}],["$","meta","1",{"name":"description","content":"ForageGrid is the smart 6-zone kibble console that turns lonely hours into sniffing, solving and calm."}],["$","meta","2",{"property":"og:title","content":"ForageGrid | Smart 6-Zone Kibble Console for Dogs"}],["$","meta","3",{"property":"og:description","content":"ForageGrid is the smart 6-zone kibble console that turns lonely hours into sniffing, solving and calm."}],["$","meta","4",{"property":"og:image","content":"https://082it187-hwa-hackathon-eight.vercel.app/media/foragegrid-hero.png"}],["$","meta","5",{"property":"og:type","content":"website"}],["$","meta","6",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","7",{"name":"twitter:title","content":"ForageGrid | Smart 6-Zone Kibble Console for Dogs"}],["$","meta","8",{"name":"twitter:description","content":"ForageGrid is the smart 6-zone kibble console that turns lonely hours into sniffing, solving and calm."}],["$","meta","9",{"name":"twitter:image","content":"https://082it187-hwa-hackathon-eight.vercel.app/media/foragegrid-hero.png"}],["$","link","10",{"rel":"icon","href":"/icon.svg"}],["$","$L34","11",{}]]
+33:null
+2f:C
+2b:C
+2e:C
+23:C
 e:C
-33:false
-32:null
+31:false
+30:null

@@ -1,7 +1,6 @@
 import { Hero } from "@/components/hero/Hero";
 import { Problem } from "@/components/sections/Problem";
 import { HowItWorks } from "@/components/sections/HowItWorks";
-import { DayAway } from "@/components/sections/DayAway";
 import { SevenDayScent } from "@/components/sections/SevenDayScent";
 import { ScentWheel } from "@/components/sections/ScentWheel";
 import { BentoGrid } from "@/components/sections/BentoGrid";
@@ -26,10 +25,7 @@ export default function Home() {
       <SectionErrorBoundary fallback={<div className="py-24 text-center text-ink/60"><p>Error loading this section.</p></div>}>
         <HowItWorks />
       </SectionErrorBoundary>
-      <SectionErrorBoundary fallback={<div className="py-24 text-center text-ink/60"><p>Error loading this section.</p></div>}>
-        <DayAway />
-      </SectionErrorBoundary>
-      <SectionErrorBoundary fallback={<div className="py-24 text-center text-ink/60"><p>Error loading this section.</p></div>}>
+<SectionErrorBoundary fallback={<div className="py-24 text-center text-ink/60"><p>Error loading this section.</p></div>}>
         <SevenDayScent />
       </SectionErrorBoundary>
       <SectionErrorBoundary fallback={<div className="py-24 text-center text-ink/60"><p>Error loading this section.</p></div>}>

@@ -8,7 +8,6 @@ import { scrollToAnchor } from "@/components/lenis-provider";
 const FOOTER_LINKS = [
   { label: "Home", href: "#home" },
   { label: "How it works", href: "#how-it-works" },
-  { label: "A Day While You're Away", href: "#day-away" },
   { label: "Safety", href: "#safety" },
   { label: "FAQ", href: "#faq" },
   { label: "Build Yours", href: "#configure" },

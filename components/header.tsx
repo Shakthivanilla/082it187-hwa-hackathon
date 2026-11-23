@@ -10,7 +10,6 @@ import { usePathname, useRouter } from "next/navigation";
 const NAV_ITEMS = [
   { label: "Home", href: "#home" },
   { label: "How it works", href: "#how-it-works" },
-  { label: "A Day While You are Away", href: "#day-away" },
   { label: "Safety", href: "#safety" },
   { label: "Build Yours", href: "#configure" },
   { label: "FAQ", href: "#faq" },

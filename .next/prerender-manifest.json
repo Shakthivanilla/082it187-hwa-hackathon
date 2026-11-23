@@ -6,7 +6,7 @@
       "routeType": "page",
       "response": "complete",
       "compute": "static",
-      "htmlSize": 79482,
+      "htmlSize": 73157,
       "experimentalPPR": true,
       "experimentalBypassFor": [
         {
@@ -79,7 +79,7 @@
       "routeType": "page",
       "response": "complete",
       "compute": "static",
-      "htmlSize": 17794,
+      "htmlSize": 17591,
       "experimentalPPR": true,
       "experimentalBypassFor": [
         {
@@ -115,7 +115,7 @@
       "routeType": "page",
       "response": "complete",
       "compute": "static",
-      "htmlSize": 19770,
+      "htmlSize": 19567,
       "experimentalPPR": true,
       "experimentalBypassFor": [
         {
@@ -151,7 +151,7 @@
       "routeType": "page",
       "response": "complete",
       "compute": "static",
-      "htmlSize": 24244,
+      "htmlSize": 24041,
       "experimentalPPR": true,
       "experimentalBypassFor": [
         {
