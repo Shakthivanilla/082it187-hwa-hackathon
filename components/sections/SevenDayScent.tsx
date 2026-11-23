@@ -5,13 +5,76 @@ import { motion } from "framer-motion";
 import { PawIcon } from "@/components/icons";
 
 const SEVEN_DAY_SCENT_DATA = [
-  { id: "mon", day: "Monday", img: "/media/scent-mon-grass.png" },
-  { id: "tue", day: "Tuesday", img: "/media/scent-tue-pine.png" },
-  { id: "wed", day: "Wednesday", img: "/media/scent-wed-herb.png" },
-  { id: "thu", day: "Thursday", img: "/media/scent-thu-apple.png" },
-  { id: "fri", day: "Friday", img: "/media/scent-fri-peanut.png" },
-  { id: "sat", day: "Saturday", img: "/media/scent-sat-chicken.png" },
-  { id: "sun", day: "Sunday", img: "/media/scent-sun-blueberry.png" },
+  {
+    id: "mon",
+    day: "Monday",
+    img: "/media/scent-mon-grass.png",
+    scent: "Fresh Meadow Grass",
+    story: "Monday morning dew coats the meadow — let your dog sniff the fresh grass and discover hidden treasures beneath the blades.",
+    sound: "Grass rustling",
+    puzzleRule: "Track the grass scent trail",
+    difficulty: "Easy",
+  },
+  {
+    id: "tue",
+    day: "Tuesday",
+    img: "/media/scent-tue-pine.png",
+    scent: "Pine Forest",
+    story: "Tuesday's pine trail winds through towering trees — let your dog follow the woody aroma and find the hidden pine cone waiting at the end.",
+    sound: "Wind through pine",
+    puzzleRule: "Find the hidden pine cone",
+    difficulty: "Medium",
+  },
+  {
+    id: "wed",
+    day: "Wednesday",
+    img: "/media/scent-wed-herb.png",
+    scent: "Wild Herb",
+    story: "Wednesday's herb garden bursts with scent — let your dog investigate the wild mint and identify the mysterious herb by smell alone.",
+    sound: "Herb garden breeze",
+    puzzleRule: "Identify the wild herb by smell",
+    difficulty: "Medium",
+  },
+  {
+    id: "thu",
+    day: "Thursday",
+    img: "/media/scent-thu-apple.png",
+    scent: "Fresh Apple",
+    story: "Thursday's apple orchard offers a crisp aroma — let your dog guess the fruit scent and enjoy a sweet lick of autumn air.",
+    sound: "Apple falling",
+    puzzleRule: "Guess the fruit scent",
+    difficulty: "Easy",
+  },
+  {
+    id: "fri",
+    day: "Friday",
+    img: "/media/scent-fri-peanut.png",
+    scent: "Peanut Butter",
+    story: "Friday's peanut butter jar is opened — let your dog tackle the lick test and experience the sticky, nutty challenge of the week.",
+    sound: "Jar opening",
+    puzzleRule: "Peanut butter lick test",
+    difficulty: "Hard",
+  },
+  {
+    id: "sat",
+    day: "Saturday",
+    img: "/media/scent-sat-chicken.png",
+    scent: "Roast Chicken",
+    story: "Saturday's roast chicken scent fills the air — let your dog follow the savory trail and discover the tempting chicken scent trail at the end.",
+    sound: "Cooking sizzle",
+    puzzleRule: "Chicken scent trail",
+    difficulty: "Hard",
+  },
+  {
+    id: "sun",
+    day: "Sunday",
+    img: "/media/scent-sun-blueberry.png",
+    scent: "Blueberry",
+    story: "Sunday's blueberry bounty awaits — let your dog splash into the sweet berry scent and finish the week with a burst of fruity fun.",
+    sound: "Berry splash",
+    puzzleRule: "Blueberry bounty",
+    difficulty: "Easy",
+  },
 ];
 
 export function SevenDayScent() {
@@ -34,11 +97,11 @@ export function SevenDayScent() {
         {/* Horizontal Scroller */}
         <div className="mx-auto overflow-x-auto pb-6 pt-6 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-amber-500">
           <div className="flex flex-nowrap gap-4" style={{ scrollBehavior: "auto" }}>
-            {SEVEN_DAY_SCENT_DATA.map((day, i) => (
+            {SEVEN_DAY_SCENT_DATA.map((day) => (
               <motion.div
                 key={day.id}
                 whileHover={{ scale: 1.05 }}
-                onClick={() => setActiveIndex(i)}
+                onClick={() => setActiveIndex(SEVEN_DAY_SCENT_DATA.indexOf(day))}
                 className="flex-shrink-0 w-24 h-32 rounded-2xl overflow-hidden object-cover border-2 border-amber-200 group-hover:shadow-xl transition-shadow cursor-pointer"
               >
                 <img
@@ -62,15 +125,26 @@ export function SevenDayScent() {
               className="w-24 h-32 rounded-2xl object-contain flex-shrink-0"
             />
             {/* Active Day Details */}
-            <div className="flex-1">
+            <div className="flex-1 space-y-3">
               <p className="text-lg font-black text-ink uppercase tracking-[0.2em]">{currentDay.day}</p>
+              <p className="text-base font-medium text-ink leading-relaxed">
+                {currentDay.story}
+              </p>
+              <p className="text-sm text-amber-600 font-black uppercase tracking-[0.1em]">
+                {currentDay.sound} cue
+              </p>
+              <p className="text-sm text-amber-700 font-black uppercase tracking-[0.05em]">
+                {currentDay.puzzleRule}
+              </p>
+              <div className="flex gap-1">
+                {[1, 2, 3].map((paw) => (
+                  <PawIcon key={paw} size={14} className="text-amber-500" />
+                ))}
+              </div>
+              <p className="mt-2 text-xs text-amber-500 opacity-70">
+                Week 1 Fresh Foraging
+              </p>
             </div>
-          </div>
-          <p className="mt-2 text-sm text-amber-600">{currentDay.day} scent</p>
-          <div className="mt-2 flex gap-1">
-            {[1, 2, 3].map((paw) => (
-              <PawIcon key={paw} size={14} className="text-amber-500" />
-            ))}
           </div>
         </div>
 

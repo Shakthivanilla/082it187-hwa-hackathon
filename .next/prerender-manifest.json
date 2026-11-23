@@ -6,7 +6,7 @@
       "routeType": "page",
       "response": "complete",
       "compute": "static",
-      "htmlSize": 70363,
+      "htmlSize": 70772,
       "experimentalPPR": true,
       "experimentalBypassFor": [
         {
