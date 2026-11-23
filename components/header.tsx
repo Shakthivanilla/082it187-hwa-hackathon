@@ -61,7 +61,7 @@ export function Header() {
         </a>
 
         <nav
-          className="mx-auto hidden items-center gap-8 lg:flex"
+          className="mx-auto hidden flex flex-col items-start gap-4 lg:flex"
           aria-label="Primary"
         >
           {NAV_ITEMS.map((item) => (
@@ -80,7 +80,7 @@ export function Header() {
             type="button"
             onClick={() => setCartOpen(true)}
             aria-label="Open cart"
-            className="relative grid h-11 w-11 place-items-center rounded-full bg-white/80 text-ink shadow-sm"
+            className="relative grid h-12 w-12 place-items-center rounded-full bg-white/80 text-ink shadow-sm"
           >
             <BoneIcon size={18} />
             {count > 0 ? (
@@ -97,7 +97,7 @@ export function Header() {
           </button>
           <a
             href="#configure"
-            className="group relative grid h-11 shrink-0 place-items-center gap-2 rounded-full bg-yellow-400 px-5 text-[13px] font-black text-amber-950 shadow-lg shadow-yellow-400/30 transition-transform hover:scale-[1.04]"
+            className="group relative grid h-12 shrink-0 place-items-center gap-2 rounded-full bg-yellow-400 px-5 text-[13px] font-black text-amber-950 shadow-lg shadow-yellow-400/30 transition-transform hover:scale-[1.04]"
           >
             <span>Configure &amp; Buy</span>
             <span className="animate-cart absolute -top-1.5 -right-1 grid min-w-5 place-items-center rounded-full bg-brown-800 px-1.5 text-[10px] font-bold text-cream">

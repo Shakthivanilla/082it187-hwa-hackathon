@@ -127,7 +127,7 @@ export function DayAway() {
         </div>
       </div>
 
-      <section ref={sectionRef} className="relative h-[340vh] bg-cream">
+      <section ref={sectionRef} className="relative h-[340vh] bg-cream max-w-full">
         <div ref={stickyRef} className="sticky top-0 h-screen overflow-hidden">
           <div ref={skyRef} className="absolute inset-0 bg-gradient-to-b from-amber-200 via-amber-100 to-sky-200" />
           <div ref={nightSkyRef} className="absolute inset-0 bg-night opacity-0" />

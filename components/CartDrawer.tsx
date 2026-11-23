@@ -145,7 +145,7 @@ export function CartDrawer({
                 <img
                   src="/media/empty-cart.png"
                   alt="Sleeping dog in an empty forage cart"
-                  className="h-44 w-44 object-contain"
+                  className="h-52 w-52 object-contain"
                 />
                 <p className="max-w-xs text-sm font-semibold text-ink-2">
                   Your cart is empty. Add a ForageGrid to start foraging.
@@ -153,7 +153,7 @@ export function CartDrawer({
                 <button
                   type="button"
                   onClick={onClose}
-                  className="rounded-full bg-yellow-400 px-7 py-3 text-sm font-black text-amber-950"
+                  className="rounded-full bg-yellow-400 min-h-14 px-8 py-3 text-sm font-black text-amber-950"
                 >
                   Start foraging
                 </button>
@@ -164,7 +164,7 @@ export function CartDrawer({
                   {cart.map((item) => (
                     <div
                       key={item.id}
-                      className="flex gap-4 border-b border-parchment bg-white p-5"
+                      className="flex gap-4 border-b border-parchment bg-white p-6"
                     >
                       <img
                         src="/media/foragegrid-app.png"
@@ -230,7 +230,7 @@ export function CartDrawer({
                         onChange={(event) => setPin(event.target.value.replace(/\D/g, "").slice(0, 6))}
                         inputMode="numeric"
                         placeholder="600001"
-                        className="h-12 w-full rounded-full border border-parchment bg-cream px-5 text-sm font-bold text-ink"
+                        className="h-14 w-full rounded-full border border-parchment bg-cream px-6 text-sm font-bold text-ink"
                       />
                       <button
                         type="button"

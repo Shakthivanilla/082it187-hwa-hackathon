@@ -128,7 +128,7 @@ export default function CheckoutPage() {
                 <input
                   value={contact.name}
                   onChange={(event) => setContact({ ...contact, name: event.target.value })}
-                  className="mt-2 h-12 w-full rounded-xl border border-parchment bg-cream px-5 text-sm font-bold text-ink"
+                  className="mt-2 h-14 w-full rounded-xl border border-parchment bg-cream px-6 text-sm font-bold text-ink"
                 />
                 {errors.name ? <p className="mt-2 text-xs font-bold text-red-700">{errors.name}</p> : null}
 
@@ -138,14 +138,14 @@ export default function CheckoutPage() {
                 <input
                   value={contact.mobile}
                   onChange={(event) => setContact({ ...contact, mobile: event.target.value.replace(/\D/g, "").slice(0, 10) })}
-                  inputMode="numeric"
-                  placeholder="9876543210"
-                  className="mt-2 h-12 w-full rounded-xl border border-parchment bg-cream px-5 text-sm font-bold text-ink"
+                  inputMode="tel"
+                  placeholder="+91 9876543210"
+                  className="mt-2 h-14 w-full rounded-xl border border-parchment bg-cream px-6 text-sm font-bold text-ink"
                 />
                 {errors.mobile ? <p className="mt-2 text-xs font-bold text-red-700">{errors.mobile}</p> : null}
 
                 <div className="mt-8 flex justify-end">
-                  <button type="button" onClick={goNext} className="rounded-full bg-yellow-400 px-8 py-3 text-sm font-black text-amber-950">
+                  <button type="button" onClick={goNext} className="rounded-full bg-yellow-400 min-h-14 px-8 py-3 text-sm font-black text-amber-950">
                     Continue
                   </button>
                 </div>
@@ -168,7 +168,7 @@ export default function CheckoutPage() {
                 <input
                   value={address.name}
                   onChange={(event) => setAddress({ ...address, name: event.target.value })}
-                  className="mt-2 h-12 w-full rounded-xl border border-parchment bg-cream px-5 text-sm font-bold text-ink"
+                  className="mt-2 h-14 w-full rounded-xl border border-parchment bg-cream px-6 text-sm font-bold text-ink"
                 />
                 {errors.name ? <p className="mt-2 text-xs font-bold text-red-700">{errors.name}</p> : null}
 
@@ -178,7 +178,7 @@ export default function CheckoutPage() {
                 <input
                   value={address.line}
                   onChange={(event) => setAddress({ ...address, line: event.target.value })}
-                  className="mt-2 h-12 w-full rounded-xl border border-parchment bg-cream px-5 text-sm font-bold text-ink"
+                  className="mt-2 h-14 w-full rounded-xl border border-parchment bg-cream px-6 text-sm font-bold text-ink"
                 />
                 {errors.line ? <p className="mt-2 text-xs font-bold text-red-700">{errors.line}</p> : null}
 
@@ -193,10 +193,10 @@ export default function CheckoutPage() {
                         const pin = event.target.value.replace(/\D/g, "").slice(0, 6);
                         setAddress({ ...address, pin, city: PIN_LOCATIONS[pin] ? PIN_LOCATIONS[pin].split(",")[0] : address.city, state: PIN_LOCATIONS[pin] ? PIN_LOCATIONS[pin].split(",")[1] : address.state });
                       }}
-                      inputMode="numeric"
+                      inputMode="tel"
                       maxLength={6}
                       placeholder="600001"
-                      className="mt-2 h-12 w-full rounded-xl border border-parchment bg-cream px-5 text-sm font-bold text-ink"
+                      className="mt-2 h-14 w-full rounded-xl border border-parchment bg-cream px-6 text-sm font-bold text-ink"
                     />
                     {errors.pin ? <p className="mt-2 text-xs font-bold text-red-700">{errors.pin}</p> : null}
                   </div>
@@ -207,7 +207,7 @@ export default function CheckoutPage() {
                     <input
                       value={address.city}
                       readOnly
-                      className="mt-2 h-12 w-full rounded-xl border border-parchment bg-cream px-5 text-sm font-bold text-ink"
+                      className="mt-2 h-14 w-full rounded-xl border border-parchment bg-cream px-6 text-sm font-bold text-ink"
                     />
                   </div>
                   <div>
@@ -217,7 +217,7 @@ export default function CheckoutPage() {
                     <input
                       value={address.state}
                       readOnly
-                      className="mt-2 h-12 w-full rounded-xl border border-parchment bg-cream px-5 text-sm font-bold text-ink"
+                      className="mt-2 h-14 w-full rounded-xl border border-parchment bg-cream px-6 text-sm font-bold text-ink"
                     />
                   </div>
                   <div>
@@ -227,16 +227,16 @@ export default function CheckoutPage() {
                     <input
                       value={address.gstin}
                       onChange={(event) => setAddress({ ...address, gstin: event.target.value })}
-                      className="mt-2 h-12 w-full rounded-xl border border-parchment bg-cream px-5 text-sm font-bold text-ink"
+                      className="mt-2 h-14 w-full rounded-xl border border-parchment bg-cream px-6 text-sm font-bold text-ink"
                     />
                   </div>
                 </div>
 
                 <div className="mt-8 flex justify-between">
-                  <button type="button" onClick={goBack} className="rounded-full border border-parchment bg-white px-8 py-3 text-sm font-black text-ink">
+                  <button type="button" onClick={goBack} className="rounded-full border border-parchment bg-white min-h-14 px-8 py-3 text-sm font-black text-ink">
                     Back
                   </button>
-                  <button type="button" onClick={goNext} className="rounded-full bg-yellow-400 px-8 py-3 text-sm font-black text-amber-950">
+                  <button type="button" onClick={goNext} className="rounded-full bg-yellow-400 min-h-14 px-8 py-3 text-sm font-black text-amber-950">
                     Continue
                   </button>
                 </div>
@@ -306,10 +306,10 @@ export default function CheckoutPage() {
                 ) : null}
 
                 <div className="mt-8 flex justify-between">
-                  <button type="button" onClick={goBack} className="rounded-full border border-parchment bg-white px-8 py-3 text-sm font-black text-ink">
+                  <button type="button" onClick={goBack} className="rounded-full border border-parchment bg-white min-h-14 px-8 py-3 text-sm font-black text-ink">
                     Back
                   </button>
-                  <button type="button" onClick={handlePay} className="rounded-full bg-yellow-400 px-8 py-3 text-sm font-black text-amber-950">
+                  <button type="button" onClick={handlePay} className="rounded-full bg-yellow-400 min-h-14 px-8 py-3 text-sm font-black text-amber-950">
                     Pay {fmt(total)}
                   </button>
                 </div>

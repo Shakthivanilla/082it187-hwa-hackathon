@@ -66,7 +66,7 @@ export function HowItWorks() {
   }, []);
 
   return (
-    <section className="relative h-[340vh] bg-cream">
+    <section className="relative h-[340vh] bg-cream max-w-full">
       <div ref={pinRef} className="how-sticky sticky top-0 h-screen overflow-hidden">
         <div className="mx-auto flex h-full max-w-7xl flex-col items-center justify-center gap-12 px-6 md:px-8 lg:flex-row lg:justify-between">
           <div className="how-visual w-full max-w-xl">
