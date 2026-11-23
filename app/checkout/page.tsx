@@ -13,14 +13,6 @@ const inr = new Intl.NumberFormat("en-IN", {
 
 const fmt = (value: number) => inr.format(value);
 
-const PIN_LOCATIONS: Record<string, string> = {
-  "560001": "Bengaluru, Karnataka",
-  "600001": "Mumbai, Maharashtra",
-  "110001": "Delhi, Delhi",
-  "700001": "Ahmedabad, Gujarat",
-  "400001": "Mumbai, Maharashtra",
-};
-
 const STEPS = ["Contact", "Address", "Review", "Pay"];
 
 export default function CheckoutPage() {
@@ -38,6 +30,8 @@ export default function CheckoutPage() {
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [payment, setPayment] = useState("upi");
+  const [orderSuccess, setOrderSuccess] = useState(false);
+  const [orderId, setOrderId] = useState<string | null>(null);
 
   const total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
 
@@ -70,8 +64,47 @@ export default function CheckoutPage() {
     setStep((value) => Math.max(0, value - 1));
   };
 
-  const handlePay = () => {
-    router.push("/confirmation");
+  const handlePay = async () => {
+    if (!validateContact()) return;
+    if (step < 3 && !validateAddress()) return;
+
+    setStep(3); // Move to processing step
+
+    try {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || "/api"}/order`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          orderNumber: orderId || `FG-${Math.floor(100000 + Math.random() * 900000)}`,
+          totalAmount: total,
+          currency: "INR",
+          deliveryAddress: {
+            pin: address.pin || "600001",
+            city: address.city || "Mumbai",
+            state: address.state || "Maharashtra",
+          },
+          paymentMethod: payment,
+          upiId: contact.mobile,
+          smsEnabled: true,
+          whatsappEnabled: true,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (data.status === "success") {
+        setOrderSuccess(true);
+        setOrderId(data.orderId);
+        // Navigate to confirmation page with order id
+        router.push(`/confirmation?orderId=${data.orderId}`);
+      } else {
+        alert("Order placement failed. Please try again.");
+        setStep(2); // Go back to review
+      }
+    } catch (err) {
+      alert("Error contacting payment gateway. Please try again.");
+      setStep(2); // Go back to review
+    }
   };
 
   return (
@@ -111,6 +144,27 @@ export default function CheckoutPage() {
         </div>
 
         <div className="mt-10">
+          {orderSuccess ? (
+            <div className="rounded-3xl border border-parchment bg-white p-7 shadow-sm text-center">
+              <h2 className="text-2xl font-black text-green-600 mt-4">Order Placed!</h2>
+              <p className="text-lg text-green-600 mt-2">
+                <strong>Order ID: {orderId}</strong> has been successfully placed.
+              </p>
+              <p className="mt-4 text-sm text-green-600">
+                Your order will be delivered to the address provided. We will send
+                updates via SMS and WhatsApp.
+              </p>
+              <div className="mt-8">
+                <a
+                  href="/"
+                  className="rounded-full bg-yellow-400 min-h-14 px-8 py-3 text-sm font-black text-amber-950 text-center block mx-auto"
+                >
+                  Back to Home
+                </a>
+              </div>
+            </div>
+          ) : null}
+
           <AnimatePresence mode="wait">
             {step === 0 ? (
               <motion.div
@@ -130,7 +184,9 @@ export default function CheckoutPage() {
                   onChange={(event) => setContact({ ...contact, name: event.target.value })}
                   className="mt-2 h-14 w-full rounded-xl border border-parchment bg-cream px-6 text-sm font-bold text-ink"
                 />
-                {errors.name ? <p className="mt-2 text-xs font-bold text-red-700">{errors.name}</p> : null}
+                {errors.name ? (
+                  <p className="mt-2 text-xs font-bold text-red-700">{errors.name}</p>
+                ) : null}
 
                 <label className="mt-6 block text-xs font-black uppercase tracking-[0.2em] text-ink-2">
                   Mobile ( +91 )
@@ -140,7 +196,9 @@ export default function CheckoutPage() {
                   onChange={(event) => setContact({ ...contact, mobile: event.target.value })}
                   className="mt-2 h-14 w-full rounded-xl border border-parchment bg-cream px-6 text-sm font-bold text-ink"
                 />
-                {errors.mobile ? <p className="mt-2 text-xs font-bold text-red-700">{errors.mobile}</p> : null}
+                {errors.mobile ? (
+                  <p className="mt-2 text-xs font-bold text-red-700">{errors.mobile}</p>
+                ) : null}
 
                 <div className="mt-8">
                   <h2 className="text-xl font-black text-ink">Payment method</h2>
@@ -260,9 +318,7 @@ export default function CheckoutPage() {
               >
                 <h2 className="text-xl font-black text-ink">Review & Pay</h2>
                 <div className="mt-6">
-                  <p className="text-xs font-black uppercase tracking-[0.2em] text-ink-2">
-                    Cart items
-                  </p>
+                  <p className="text-xs font-black uppercase tracking-[0.2em] text-ink-2">Cart items</p>
                   {cart.length === 0 ? (
                     <p className="mt-2 text-sm font-bold text-red-700">Your cart is empty</p>
                   ) : (
@@ -287,9 +343,7 @@ export default function CheckoutPage() {
                 </div>
 
                 <div className="mt-8 flex items-center justify-between">
-                  <span className="text-xs font-black uppercase tracking-[0.2em] text-ink-2">
-                    Sub total
-                  </span>
+                  <span className="text-xs font-black uppercase tracking-[0.2em] text-ink-2">Sub total</span>
                   <span className="text-2xl font-black text-ink">{fmt(total)}</span>
                 </div>
 
