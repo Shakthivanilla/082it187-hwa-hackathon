@@ -3,6 +3,16 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { PawIcon } from "@/components/icons";
+import { scrollToAnchor } from "@/components/lenis-provider";
+
+const FOOTER_LINKS = [
+  { label: "Home", href: "#home" },
+  { label: "How it works", href: "#how-it-works" },
+  { label: "A Day While You're Away", href: "#day-away" },
+  { label: "Safety", href: "#safety" },
+  { label: "FAQ", href: "#faq" },
+  { label: "Build Yours", href: "#configure" },
+];
 
 export function Footer() {
   const [email, setEmail] = useState("");
@@ -80,12 +90,19 @@ export function Footer() {
           {subscribed ? <p className="text-xs font-bold text-yellow-400">You are on the list. (demo)</p> : null}
 
           <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs font-semibold text-cream/60">
-            <a href="#home" className="hover:text-cream">Home</a>
-            <a href="#how-it-works" className="hover:text-cream">How it works</a>
-            <a href="#day-away" className="hover:text-cream">A Day While You're Away</a>
-            <a href="#safety" className="hover:text-cream">Safety</a>
-            <a href="#faq" className="hover:text-cream">FAQ</a>
-            <a href="#configure" className="hover:text-cream">Build Yours</a>
+            {FOOTER_LINKS.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={(event) => {
+                  event.preventDefault();
+                  scrollToAnchor(link.href);
+                }}
+                className="hover:text-cream"
+              >
+                {link.label}
+              </a>
+            ))}
           </nav>
 
           <div className="mt-8 flex flex-col items-center gap-2">

@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, type MouseEvent } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { PawIcon, MenuIcon, XIcon } from "@/components/icons";
 import { useCartCount } from "@/lib/store";
-import { useRouter } from "next/navigation";
+import { scrollToAnchor } from "@/components/lenis-provider";
+import { usePathname, useRouter } from "next/navigation";
 
 const NAV_ITEMS = [
   { label: "Home", href: "#home" },
@@ -20,7 +21,30 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
   const router = useRouter();
+  const pathname = usePathname();
   const count = useCartCount();
+
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (!hash) return;
+    const timer = window.setTimeout(() => {
+      scrollToAnchor(hash);
+    }, 120);
+    return () => window.clearTimeout(timer);
+  }, [pathname]);
+
+  const handleAnchorClick = (
+    event: MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    event.preventDefault();
+    document.body.style.overflow = "";
+    setOpen(false);
+    const didScroll = scrollToAnchor(href);
+    if (!didScroll) {
+      router.push(`/${href}`);
+    }
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -48,7 +72,11 @@ export function Header() {
       `}
     >
       <div className="mx-auto flex h-16 max-w-7xl items-start gap-4 px-4 sm:px-6 lg:px-8 flex-col lg:flex-row">
-        <a href="#home" className="flex shrink-0 items-center gap-2.5">
+        <a
+          href="#home"
+          onClick={(event) => handleAnchorClick(event, "#home")}
+          className="flex shrink-0 items-center gap-2.5"
+        >
           <PawIcon size={30} className="text-yellow-500" />
           <span className="flex flex-col leading-none">
             <span className="text-[15px] font-black tracking-tight text-ink">
@@ -65,6 +93,7 @@ export function Header() {
             <a
               key={item.href}
               href={item.href}
+              onClick={(event) => handleAnchorClick(event, item.href)}
               className="text-[13px] font-semibold text-ink-2 transition-colors hover:text-ink"
             >
               {item.label}
@@ -86,6 +115,7 @@ export function Header() {
           </button>
           <a
             href="#configure"
+            onClick={(event) => handleAnchorClick(event, "#configure")}
             className="group relative grid h-12 shrink-0 place-items-center gap-2 rounded-full bg-yellow-400 px-5 text-[13px] font-black text-amber-950 shadow-lg shadow-yellow-400/30 transition-transform hover:scale-[1.04]"
           >
             <span>Configure & Buy</span>
@@ -128,7 +158,7 @@ export function Header() {
                   <a
                     key={item.href}
                     href={item.href}
-                    onClick={() => setOpen(false)}
+                    onClick={(event) => handleAnchorClick(event, item.href)}
                     className="rounded-xl px-4 py-3 text-base font-semibold text-ink-2 transition-colors hover:bg-parchment hover:text-ink"
                   >
                     {item.label}

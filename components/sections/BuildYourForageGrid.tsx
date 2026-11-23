@@ -55,7 +55,7 @@ export function BuildYourForageGrid() {
   };
 
   return (
-    <section id="configure" className="relative bg-cream py-24 md:py-32">
+    <section id="configure" className="relative bg-cream py-24 scroll-mt-28 md:py-32">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-xs font-black uppercase tracking-[0.28em] text-blue-700">Build Yours</p>

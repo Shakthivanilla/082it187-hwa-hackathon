@@ -13,7 +13,7 @@ const BADGES = ["Chew-Proof", "Dishwasher-Safe", "USB-C Battery", "Food-Safe"];
 
 export function Safety() {
   return (
-    <section className="relative bg-cream py-24 md:py-32">
+    <section id="safety" className="relative bg-cream py-24 scroll-mt-28 md:py-32">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         <div className="grid items-center gap-14 lg:grid-cols-2">
           <motion.div

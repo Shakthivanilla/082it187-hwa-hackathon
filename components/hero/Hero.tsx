@@ -6,6 +6,7 @@ import { HeroCanvas } from "./HeroCanvas";
 import { HeroVideoModal } from "./HeroVideoModal";
 import { Magnetic } from "@/components/magnetic";
 import { PawIcon, PlayIcon, ChevronRightIcon, XIcon } from "@/components/icons";
+import { scrollToAnchor } from "@/components/lenis-provider";
 
 const PAW_ANIMATION_DELAY = 1500;
 
@@ -35,7 +36,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative h-[100svh] min-h-[620px] overflow-hidden bg-night text-cream"
+      className="relative h-[100svh] min-h-[620px] scroll-mt-28 overflow-hidden bg-night text-cream"
     >
       {/* Paw loading animation */}
       {showPaw ? (
@@ -101,6 +102,10 @@ export function Hero() {
             <Magnetic strength={0.4} className="inline-block">
               <a
                 href="#configure"
+                onClick={(event) => {
+                  event.preventDefault();
+                  scrollToAnchor("#configure");
+                }}
                 className="group inline-flex items-center gap-2 rounded-full bg-yellow-400 px-7 py-4 text-[15px] font-black text-amber-950 shadow-lg shadow-yellow-400/30 transition-transform hover:scale-[1.03]"
               >
                 Configure Yours
@@ -130,7 +135,7 @@ export function Hero() {
       {/* Comparison CTA at bottom */}
       <button
         type="button"
-        onClick={() => document.getElementById("comparison")?.scrollIntoView({ behavior: "smooth" })}
+        onClick={() => scrollToAnchor("#comparison")}
         aria-label="Scroll to comparison"
         className="absolute bottom-12 left-1/2 -translate-x-1/2"
         style={{ zIndex: 100 }}

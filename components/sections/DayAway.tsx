@@ -95,7 +95,8 @@ export function DayAway() {
 
   return (
     <section
-      className="relative bg-cream min-h-[600px]"
+      id="day-away"
+      className="relative bg-cream min-h-[600px] scroll-mt-28"
       ref={sectionRef}
       style={{ overflowX: "auto" }}
     >
