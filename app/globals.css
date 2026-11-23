@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --color-cream: #fbf6ec;
+  --color-parchment: #f2e6cf;
+  --color-ink: #1b1b1f;
+  --color-ink-2: #54575f;
+  --color-night: #0e1014;
+  --color-night-2: #161a21;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #fffdf8;
+  color: var(--color-ink);
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background-color: #facc15;
+  color: #451a03;
+}
+
+.w {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+.w-inner {
+  display: inline-block;
+  will-change: transform;
+}
+
+@keyframes paw-bounce {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-8deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(8deg);
+  }
+}
+
+.animate-paw {
+  animation: paw-bounce 1.1s ease-in-out infinite;
+}
+
+@keyframes cart-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-7px);
+  }
+  55% {
+    transform: translateY(-2px);
+  }
+  75% {
+    transform: translateY(-5px);
+  }
+}
+
+.animate-cart {
+  animation: cart-bounce 1.6s ease-in-out infinite;
+}
+
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+.animate-float {
+  animation: float-soft 7s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
