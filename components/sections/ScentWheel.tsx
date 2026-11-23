@@ -5,13 +5,62 @@ import { motion } from "framer-motion";
 import { PawIcon } from "@/components/icons";
 
 const DAILY_ITEMS = [
-  { day: "Monday", img: "/media/scent-mon-grass.png", scent: "Fresh Meadow Grass" },
-  { day: "Tuesday", img: "/media/scent-tue-pine.png", scent: "Pine Forest" },
-  { day: "Wednesday", img: "/media/scent-wed-herb.png", scent: "Wild Herb" },
-  { day: "Thursday", img: "/media/scent-thu-apple.png", scent: "Fresh Apple" },
-  { day: "Friday", img: "/media/scent-fri-peanut.png", scent: "Peanut Butter" },
-  { day: "Saturday", img: "/media/scent-sat-chicken.png", scent: "Roast Chicken" },
-  { day: "Sunday", img: "/media/scent-sun-blueberry.png", scent: "Blueberry" },
+  {
+    day: "Monday",
+    img: "/media/scent-mon-grass.png",
+    scent: "Fresh Meadow Grass",
+    puzzleRule: "Track the grass scent trail",
+    difficulty: "Easy",
+    sound: "Grass rustling",
+  },
+  {
+    day: "Tuesday",
+    img: "/media/scent-tue-pine.png",
+    scent: "Pine Forest",
+    puzzleRule: "Find the hidden pine cone",
+    difficulty: "Medium",
+    sound: "Wind through pine",
+  },
+  {
+    day: "Wednesday",
+    img: "/media/scent-wed-herb.png",
+    scent: "Wild Herb",
+    puzzleRule: "Identify the wild herb by smell",
+    difficulty: "Medium",
+    sound: "Herb garden breeze",
+  },
+  {
+    day: "Thursday",
+    img: "/media/scent-thu-apple.png",
+    scent: "Fresh Apple",
+    puzzleRule: "Guess the fruit scent",
+    difficulty: "Easy",
+    sound: "Apple falling",
+  },
+  {
+    day: "Friday",
+    img: "/media/scent-fri-peanut.png",
+    scent: "Peanut Butter",
+    puzzleRule: "Peanut butter lick test",
+    difficulty: "Hard",
+    sound: "Jar opening",
+  },
+  {
+    day: "Saturday",
+    img: "/media/scent-sat-chicken.png",
+    scent: "Roast Chicken",
+    puzzleRule: "Chicken scent trail",
+    difficulty: "Hard",
+    sound: "Cooking sizzle",
+  },
+  {
+    day: "Sunday",
+    img: "/media/scent-sun-blueberry.png",
+    scent: "Blueberry",
+    puzzleRule: "Blueberry bounty",
+    difficulty: "Easy",
+    sound: "Berry splash",
+  },
 ];
 
 export function ScentWheel() {
@@ -19,6 +68,8 @@ export function ScentWheel() {
 
   const prevIndex = activeIndex === 0 ? 6 : activeIndex - 1;
   const nextIndex = activeIndex === 6 ? 0 : activeIndex + 1;
+
+  const currentItem = DAILY_ITEMS[activeIndex];
 
   return (
     <section className="relative bg-cream py-24 md:py-32">
@@ -51,6 +102,8 @@ export function ScentWheel() {
               <div className="absolute left-1/2 bottom-2 -translate-x-1/2 text-center">
                 <p className="text-lg font-black text-ink">{item.day}</p>
                 <p className="mt-1 text-sm font-bold text-blue-700">{item.scent}</p>
+                <p className="mt-1 text-xs text-amber-600">{item.puzzleRule}</p>
+                <p className="mt-1 text-xs text-amber-400">{item.difficulty}</p>
               </div>
             </motion.div>
           ))}
