@@ -7,7 +7,7 @@ import { BoneIcon } from "@/components/icons";
 import { useRouter } from "next/navigation";
 import { useForageGrid } from "@/lib/store";
 
-const CONSOLE_PRICE = 7999;
+const CONSOLE_PRICE = 2999;
 const MONTHLY_REFRESH = 699;
 const YEARLY_REFRESH = 549;
 
