@@ -9,7 +9,7 @@ import { useRouter } from "next/navigation";
 const NAV_ITEMS = [
   { label: "Home", href: "#home" },
   { label: "How it works", href: "#how-it-works" },
-  { label: "A Day While You&apos;re Away", href: "#day-away" },
+  { label: "A Day While You are Away", href: "#day-away" },
   { label: "Safety", href: "#safety" },
   { label: "Build Yours", href: "#configure" },
   { label: "FAQ", href: "#faq" },
@@ -55,7 +55,7 @@ export function Header() {
               ForageGrid
             </span>
             <span className="mt-1 text-[9px] font-bold uppercase tracking-[0.22em] text-brown-800">
-              Happy While You&apos;re Away
+              Happy While You are Away
             </span>
           </span>
         </a>
